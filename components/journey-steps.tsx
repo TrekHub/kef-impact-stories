@@ -187,34 +187,30 @@ export function JourneySteps() {
           <Card className="bg-primary/5 border-primary/20 border-2 max-w-4xl mx-auto">
             <CardContent className="p-12">
               <h3 className="text-3xl font-bold mb-4 text-primary">
-                Experience These Stories Yourself
+                Now Experience These Stories Yourself
               </h3>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Walk in the shoes of KEF students through interactive stories.
-                Make choices that shape their futures and discover the real
-                impact of education.
+                Don't just read about transformation—live it. Walk in the shoes
+                of KEF students, make choices that shape their futures, and
+                explore the communities where change happens.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="px-8 py-4 text-lg">
-                  <Link href="/journey" className="flex items-center gap-2">
-                    <BookOpen className="h-5 w-5" />
-                    Start Interactive Stories
-                    <ArrowRight className="h-5 w-5" />
-                  </Link>
-                </Button>
-
                 <Button
-                  asChild
-                  variant="outline"
                   size="lg"
-                  className="px-8 py-4 text-lg border-2"
+                  className="px-8 py-4 text-lg"
+                  onClick={() => {
+                    const element = document.getElementById(
+                      "interactive-experience"
+                    );
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
-                  <Link href="/map" className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5" />
-                    Explore the Map
-                    <ArrowRight className="h-5 w-5" />
-                  </Link>
+                  <BookOpen className="h-5 w-5 mr-2" />
+                  Start Interactive Experience
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </div>
             </CardContent>
