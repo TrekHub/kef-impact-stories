@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Menu,
@@ -29,11 +30,16 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 font-bold text-xl">
-            <div className="p-2 bg-primary/10 rounded-lg">
-              <Heart className="h-6 w-6 text-primary" />
+          <Link href="/" className="flex items-center">
+            <div className="relative w-16 h-16 flex-shrink-0">
+              <Image
+                src="/kef-images/logo.webp"
+                alt="Kenya Education Fund"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className="hidden sm:block text-foreground">KEF Stories</span>
           </Link>
 
           {/* Desktop Navigation */}

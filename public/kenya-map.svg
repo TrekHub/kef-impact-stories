@@ -1,0 +1,96 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kenya Map SVG with detailed outline -->
+  <defs>
+    <pattern id="mapTexture" patternUnits="userSpaceOnUse" width="10" height="10">
+      <rect width="10" height="10" fill="#f0f9ff"/>
+      <circle cx="5" cy="5" r="1" fill="#e0f2fe" opacity="0.5"/>
+    </pattern>
+    <filter id="mapShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Kenya outline based on geographical data -->
+  <path d="M 150 120 
+           L 180 110 
+           L 220 105 
+           L 260 108 
+           L 300 115 
+           L 340 125 
+           L 380 140 
+           L 420 160 
+           L 450 180 
+           L 480 205 
+           L 500 235 
+           L 510 265 
+           L 515 295 
+           L 510 325 
+           L 500 355 
+           L 485 385 
+           L 465 410 
+           L 440 430 
+           L 410 445 
+           L 375 455 
+           L 340 460 
+           L 305 458 
+           L 270 455 
+           L 235 450 
+           L 200 440 
+           L 170 425 
+           L 145 405 
+           L 125 380 
+           L 110 350 
+           L 100 320 
+           L 95 290 
+           L 95 260 
+           L 100 230 
+           L 105 200 
+           L 110 175 
+           L 120 150 
+           Z" 
+        fill="url(#mapTexture)" 
+        stroke="#10b981" 
+        stroke-width="3" 
+        filter="url(#mapShadow)"/>
+  
+  <!-- Lake Victoria -->
+  <ellipse cx="140" cy="330" rx="25" ry="35" fill="#3b82f6" opacity="0.7"/>
+  
+  <!-- Lake Turkana -->
+  <ellipse cx="220" cy="170" rx="12" ry="30" fill="#3b82f6" opacity="0.7" transform="rotate(-15 220 170)"/>
+  
+  <!-- Mount Kenya -->
+  <circle cx="340" cy="290" r="8" fill="#6b7280"/>
+  <circle cx="340" cy="290" r="4" fill="#ffffff"/>
+  
+  <!-- Coastal area -->
+  <path d="M 440 430 Q 470 440 500 455 Q 520 470 540 490 Q 530 510 510 520 Q 480 525 450 520" 
+        fill="#3b82f6" opacity="0.3"/>
+  
+  <!-- Geographic labels -->
+  <text x="140" y="370" text-anchor="middle" class="text-sm" fill="#1e40af" font-weight="bold">Lake Victoria</text>
+  <text x="220" y="140" text-anchor="middle" class="text-sm" fill="#1e40af" font-weight="bold">Lake Turkana</text>
+  <text x="340" y="310" text-anchor="middle" class="text-sm" fill="#374151" font-weight="bold">Mt. Kenya</text>
+  <text x="520" y="540" text-anchor="middle" class="text-sm" fill="#1e40af" font-weight="bold">Indian Ocean</text>
+  
+  <!-- Borders with neighboring countries -->
+  <text x="50" y="250" text-anchor="middle" class="text-xs" fill="#6b7280" font-style="italic">UGANDA</text>
+  <text x="150" y="80" text-anchor="middle" class="text-xs" fill="#6b7280" font-style="italic">SOUTH SUDAN</text>
+  <text x="300" y="80" text-anchor="middle" class="text-xs" fill="#6b7280" font-style="italic">ETHIOPIA</text>
+  <text x="450" y="120" text-anchor="middle" class="text-xs" fill="#6b7280" font-style="italic">SOMALIA</text>
+  <text x="350" y="520" text-anchor="middle" class="text-xs" fill="#6b7280" font-style="italic">TANZANIA</text>
+  
+  <!-- Main cities (will be replaced by interactive markers) -->
+  <circle cx="340" cy="330" r="3" fill="#dc2626"/> <!-- Nairobi -->
+  <circle cx="170" cy="335" r="3" fill="#dc2626"/> <!-- Kisumu -->
+  <circle cx="220" cy="240" r="3" fill="#dc2626"/> <!-- Eldoret -->
+  <circle cx="470" cy="435" r="3" fill="#dc2626"/> <!-- Mombasa -->
+  <circle cx="220" cy="160" r="3" fill="#dc2626"/> <!-- Turkana -->
+  
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" class="text-2xl" fill="#059669" font-weight="bold">REPUBLIC OF KENYA</text>
+  <text x="400" y="70" text-anchor="middle" class="text-sm" fill="#6b7280">East Africa</text>
+</svg>
