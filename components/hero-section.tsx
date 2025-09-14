@@ -82,37 +82,56 @@ export function HeroSection() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg"
-            onClick={() => {
-              const element = document.getElementById("journey-section");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            <ArrowRight className="h-5 w-5 mr-2" />
-            Begin the Journey
-          </Button>
-
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="px-8 py-4 text-lg font-medium rounded-lg border-2"
-          >
-            <a
-              href="https://www.kenyaeducationfund.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
+        <div className="space-y-4 mb-20">
+          {/* Primary Game CTA - Mobile Optimized */}
+          <div className="flex justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white px-8 py-6 text-xl font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              <Heart className="h-5 w-5" />
-              Learn About KEF
-            </a>
-          </Button>
+              <Link href="/game" className="flex items-center gap-3">
+                <Play className="h-6 w-6" />
+                Start Interactive Game
+                <Sparkles className="h-6 w-6" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Secondary Options */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-6 py-3 text-base font-medium rounded-lg border-2"
+              onClick={() => {
+                const element = document.getElementById("journey-section");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              <ArrowRight className="h-4 w-4 mr-2" />
+              Explore Full Story
+            </Button>
+
+            <Button
+              asChild
+              variant="ghost"
+              size="lg"
+              className="px-6 py-3 text-base font-medium"
+            >
+              <a
+                href="https://www.kenyaeducationfund.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Heart className="h-4 w-4" />
+                About KEF
+              </a>
+            </Button>
+          </div>
         </div>
 
         {/* Stats Cards */}
