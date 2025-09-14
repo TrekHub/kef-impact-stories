@@ -29,8 +29,7 @@ const journeySteps = [
     color: "text-red-600",
     bgColor: "bg-red-50",
     borderColor: "border-red-200",
-    imageUrl:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: "/kef-images/IMG_1715.jpg",
     stats: "60% of girls in rural areas never complete secondary school",
   },
   {
@@ -43,8 +42,7 @@ const journeySteps = [
     color: "text-primary",
     bgColor: "bg-primary/5",
     borderColor: "border-primary/20",
-    imageUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: "/kef-images/students.jpg",
     stats: "99% of KEF students transition to university",
   },
   {
@@ -57,8 +55,7 @@ const journeySteps = [
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
-    imageUrl:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: "/kef-images/IMG_1728.jpg",
     stats: "4,600+ scholarships provided since 2006",
   },
   {
@@ -71,8 +68,7 @@ const journeySteps = [
     color: "text-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-200",
-    imageUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: "/kef-images/graduation.webp",
     stats: "Each graduate impacts 100+ community members",
   },
 ];
