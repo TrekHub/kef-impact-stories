@@ -90,7 +90,7 @@ export function HeroSection() {
             <div className="relative">
               <div className="relative aspect-[4/3] overflow-hidden border-2 border-border rounded-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1532&q=80"
+                  src="https://images.unsplash.com/photo-1594736797933-d0d9c83d2577?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                   alt="Kenyan high school students in classroom - empowering education for brighter futures"
                   fill
                   className="object-cover"
