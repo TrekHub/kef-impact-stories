@@ -70,13 +70,39 @@
   overflow: hidden;
 }
 
-/* Text wrapping utilities */
+/* Enhanced text wrapping utilities */
 .text-wrap-balance {
   text-wrap: balance;
 }
 
 .text-wrap-pretty {
   text-wrap: pretty;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+
+.word-break-all {
+  word-break: break-all;
+}
+
+.hyphens-auto {
+  hyphens: auto;
+}
+
+/* Force text wrapping for choice buttons */
+.choice-text {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  white-space: normal;
+  line-height: 1.4;
 }
 
 /* Enhanced responsive text scaling */

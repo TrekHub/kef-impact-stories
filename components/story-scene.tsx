@@ -490,6 +490,8 @@ export function StorySceneComponent({
                   style={{
                     animationDelay: `${index * 200}ms`,
                     animationFillMode: "both",
+                    wordBreak: "break-word",
+                    overflowWrap: "anywhere",
                   }}
                 >
                   {/* Choice selection background effect */}
@@ -497,8 +499,8 @@ export function StorySceneComponent({
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   )}
 
-                  <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full relative z-10">
-                    <div className="flex-shrink-0">
+                  <div className="flex items-start gap-3 sm:gap-4 md:gap-6 w-full relative z-10 overflow-hidden">
+                    <div className="flex-shrink-0 mt-1">
                       <div
                         className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                           selectedChoice === choice.id
@@ -516,48 +518,21 @@ export function StorySceneComponent({
                       </div>
                     </div>
 
-                    <div className="flex-1 space-y-1 sm:space-y-2 min-w-0">
+                    <div className="flex-1 space-y-1 sm:space-y-2 min-w-0 overflow-hidden">
                       <span
-                        className={`leading-relaxed font-semibold text-sm sm:text-base md:text-lg lg:text-xl block break-words ${
+                        className={`leading-relaxed font-semibold text-sm sm:text-base md:text-lg block break-words word-wrap overflow-wrap-anywhere hyphens-auto ${
                           selectedChoice === choice.id
                             ? "text-white"
                             : "text-gray-900 group-hover:text-primary"
                         }`}
+                        style={{
+                          wordBreak: "break-word",
+                          overflowWrap: "anywhere",
+                          hyphens: "auto",
+                        }}
                       >
                         {choice.text}
                       </span>
-
-                      {/* Enhanced choice impact preview */}
-                      <div
-                        className={`flex items-center gap-2 text-xs sm:text-sm ${
-                          selectedChoice === choice.id
-                            ? "text-white/90"
-                            : "text-gray-600"
-                        }`}
-                      >
-                        <span className="inline-flex items-center gap-1 break-words">
-                          {choice.id.includes("school") ? (
-                            <>
-                              🎓{" "}
-                              <span>
-                                Education pathway - High impact potential
-                              </span>
-                            </>
-                          ) : choice.id.includes("work") ? (
-                            <>
-                              💼{" "}
-                              <span>Work pathway - Immediate needs focus</span>
-                            </>
-                          ) : (
-                            <>
-                              💫{" "}
-                              <span>
-                                Transformative pathway - Life-changing outcome
-                              </span>
-                            </>
-                          )}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </Button>
