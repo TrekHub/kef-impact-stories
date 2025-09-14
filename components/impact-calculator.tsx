@@ -1,45 +1,58 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Badge } from "@/components/ui/badge"
-import type { ImpactData } from "@/lib/types"
-import { Calculator, GraduationCap, Calendar, MapPin, Sparkles } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import type { ImpactData } from "@/lib/types";
+import {
+  Calculator,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
 
 interface ImpactCalculatorProps {
-  onImpactCalculated: (impact: ImpactData) => void
+  onImpactCalculated: (impact: ImpactData) => void;
 }
 
-export function ImpactCalculator({ onImpactCalculated }: ImpactCalculatorProps) {
-  const [donorName, setDonorName] = useState("")
-  const [amount, setAmount] = useState<number>(100)
-  const [isCalculating, setIsCalculating] = useState(false)
+export function ImpactCalculator({
+  onImpactCalculated,
+}: ImpactCalculatorProps) {
+  const [donorName, setDonorName] = useState("");
+  const [amount, setAmount] = useState<number>(100);
+  const [isCalculating, setIsCalculating] = useState(false);
 
   const calculateImpact = (donationAmount: number) => {
     // KEF impact calculations based on real data
-    const monthlySchoolFees = 35 // Average monthly secondary school fees
-    const studentsSupported = Math.floor(donationAmount / (monthlySchoolFees * 12))
-    const monthsOfEducation = Math.floor(donationAmount / monthlySchoolFees)
+    const monthlySchoolFees = 35; // Average monthly secondary school fees
+    const studentsSupported = Math.floor(
+      donationAmount / (monthlySchoolFees * 12)
+    );
+    const monthsOfEducation = Math.floor(donationAmount / monthlySchoolFees);
 
-    let location = "rural Kenya"
-    let specificImpact = ""
+    let location = "rural Kenya";
+    let specificImpact = "";
 
     if (donationAmount >= 400) {
-      location = "Turkana County"
+      location = "Turkana County";
       specificImpact =
-        "Fund a complete year of secondary education for a student, including tuition, uniforms, books, and boarding fees."
+        "Fund a complete year of secondary education for a student, including tuition, uniforms, books, and boarding fees.";
     } else if (donationAmount >= 200) {
-      location = "Kisumu region"
-      specificImpact = "Cover 6 months of education expenses, including school supplies and mentorship support."
+      location = "Kisumu region";
+      specificImpact =
+        "Cover 6 months of education expenses, including school supplies and mentorship support.";
     } else if (donationAmount >= 100) {
-      location = "Nairobi slums"
-      specificImpact = "Provide 3 months of educational support, including textbooks and school meals."
+      location = "Nairobi slums";
+      specificImpact =
+        "Provide 3 months of educational support, including textbooks and school meals.";
     } else {
-      location = "various communities"
-      specificImpact = "Contribute to essential school supplies and educational materials for multiple students."
+      location = "various communities";
+      specificImpact =
+        "Contribute to essential school supplies and educational materials for multiple students.";
     }
 
     return {
@@ -47,40 +60,46 @@ export function ImpactCalculator({ onImpactCalculated }: ImpactCalculatorProps) 
       months: Math.max(1, monthsOfEducation),
       location,
       specificImpact,
-    }
-  }
+    };
+  };
 
   const handleCalculate = () => {
-    if (!donorName.trim()) return
+    if (!donorName.trim()) return;
 
-    setIsCalculating(true)
+    setIsCalculating(true);
 
     // Simulate calculation delay for better UX
     setTimeout(() => {
-      const impact = calculateImpact(amount)
+      const impact = calculateImpact(amount);
       const impactData: ImpactData = {
         donorName: donorName.trim(),
         amount,
         impact,
-      }
+      };
 
-      onImpactCalculated(impactData)
-      setIsCalculating(false)
-    }, 1500)
-  }
+      onImpactCalculated(impactData);
+      setIsCalculating(false);
+    }, 1500);
+  };
 
-  const presetAmounts = [50, 100, 200, 400, 800]
+  const presetAmounts = [50, 100, 200, 400, 800];
 
   return (
-    <Card className="max-w-2xl mx-auto bg-card/80 backdrop-blur-sm border-0 shadow-lg">
+    <Card className="max-w-2xl mx-auto bg-white border border-border rounded-xl">
       <CardHeader className="text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Calculator className="h-6 w-6 text-primary" />
-          <Badge variant="secondary">Impact Calculator</Badge>
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="p-2 bg-primary/10 rounded-lg">
+            <Calculator className="h-6 w-6 text-primary" />
+          </div>
+          <span className="text-lg font-medium px-4 py-1 bg-secondary rounded-full border border-border">
+            Impact Calculator
+          </span>
         </div>
         <CardTitle className="text-2xl">{"Discover Your Impact"}</CardTitle>
         <p className="text-muted-foreground text-pretty">
-          {"See exactly how your donation transforms lives and creates opportunities for Kenyan students."}
+          {
+            "See exactly how your donation transforms lives and creates opportunities for Kenyan students."
+          }
         </p>
       </CardHeader>
 
@@ -101,7 +120,9 @@ export function ImpactCalculator({ onImpactCalculated }: ImpactCalculatorProps) 
 
         {/* Amount Selection */}
         <div className="space-y-4">
-          <Label className="text-sm font-medium">{"Donation Amount (USD)"}</Label>
+          <Label className="text-sm font-medium">
+            {"Donation Amount (USD)"}
+          </Label>
 
           {/* Preset Amounts */}
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
@@ -124,7 +145,9 @@ export function ImpactCalculator({ onImpactCalculated }: ImpactCalculatorProps) 
               type="number"
               min="1"
               value={amount}
-              onChange={(e) => setAmount(Math.max(1, Number.parseInt(e.target.value) || 1))}
+              onChange={(e) =>
+                setAmount(Math.max(1, Number.parseInt(e.target.value) || 1))
+              }
               className="text-lg font-medium"
             />
           </div>
@@ -138,14 +161,18 @@ export function ImpactCalculator({ onImpactCalculated }: ImpactCalculatorProps) 
                 <GraduationCap className="h-4 w-4 text-primary" />
                 <span className="text-sm text-muted-foreground">Students</span>
               </div>
-              <div className="text-xl font-bold text-primary">{Math.max(1, Math.floor(amount / 420))}</div>
+              <div className="text-xl font-bold text-primary">
+                {Math.max(1, Math.floor(amount / 420))}
+              </div>
             </div>
             <div>
               <div className="flex items-center justify-center gap-1 mb-1">
                 <Calendar className="h-4 w-4 text-primary" />
                 <span className="text-sm text-muted-foreground">Months</span>
               </div>
-              <div className="text-xl font-bold text-primary">{Math.max(1, Math.floor(amount / 35))}</div>
+              <div className="text-xl font-bold text-primary">
+                {Math.max(1, Math.floor(amount / 35))}
+              </div>
             </div>
             <div>
               <div className="flex items-center justify-center gap-1 mb-1">
@@ -186,5 +213,5 @@ export function ImpactCalculator({ onImpactCalculated }: ImpactCalculatorProps) 
         </p>
       </CardContent>
     </Card>
-  )
+  );
 }

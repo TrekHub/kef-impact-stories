@@ -6,74 +6,74 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fdf2d6;
-  --foreground: #224e6d;
-  --card: #fdf2d6;
-  --card-foreground: #224e6d;
-  --popover: #fdf2d6;
-  --popover-foreground: #224e6d;
-  --primary: #f5690d;
-  --primary-foreground: #fdf2d6;
-  --secondary: #224e6d;
-  --secondary-foreground: #fdf2d6;
-  --muted: #224e6d;
-  --muted-foreground: #fdf2d6;
-  --accent: #f5690d;
-  --accent-foreground: #fdf2d6;
-  --destructive: #f5690d;
-  --destructive-foreground: #fdf2d6;
-  --border: #224e6d;
-  --input: #fdf2d6;
-  --ring: #f5690d;
-  --chart-1: #f5690d;
-  --chart-2: #224e6d;
-  --chart-3: #fdf2d6;
-  --chart-4: #224e6d;
-  --chart-5: #f5690d;
-  --radius: 0.5rem;
-  --sidebar: #fdf2d6;
-  --sidebar-foreground: #224e6d;
-  --sidebar-primary: #f5690d;
-  --sidebar-primary-foreground: #fdf2d6;
-  --sidebar-accent: #224e6d;
-  --sidebar-accent-foreground: #fdf2d6;
-  --sidebar-border: #224e6d;
-  --sidebar-ring: #f5690d;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #d75502;
+  --primary-foreground: #ffffff;
+  --secondary: #f8f8f8;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --accent: #d75502;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #ffffff;
+  --ring: #d75502;
+  --chart-1: #d75502;
+  --chart-2: #1a1a1a;
+  --chart-3: #f5f5f5;
+  --chart-4: #666666;
+  --chart-5: #d75502;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #d75502;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f8f8f8;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #d75502;
 }
 
 .dark {
-  --background: #224e6d;
-  --foreground: #fdf2d6;
-  --card: #224e6d;
-  --card-foreground: #fdf2d6;
-  --popover: #224e6d;
-  --popover-foreground: #fdf2d6;
-  --primary: #f5690d;
-  --primary-foreground: #fdf2d6;
-  --secondary: #fdf2d6;
-  --secondary-foreground: #224e6d;
-  --muted: #fdf2d6;
-  --muted-foreground: #224e6d;
-  --accent: #f5690d;
-  --accent-foreground: #fdf2d6;
-  --destructive: #f5690d;
-  --destructive-foreground: #fdf2d6;
-  --border: #fdf2d6;
-  --input: #224e6d;
-  --ring: #f5690d;
-  --chart-1: #f5690d;
-  --chart-2: #fdf2d6;
-  --chart-3: #224e6d;
-  --chart-4: #f5690d;
-  --chart-5: #fdf2d6;
-  --sidebar: #224e6d;
-  --sidebar-foreground: #fdf2d6;
-  --sidebar-primary: #f5690d;
-  --sidebar-primary-foreground: #fdf2d6;
-  --sidebar-accent: #fdf2d6;
-  --sidebar-accent-foreground: #224e6d;
-  --sidebar-border: #fdf2d6;
-  --sidebar-ring: #f5690d;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+  --popover: #1a1a1a;
+  --popover-foreground: #f5f5f5;
+  --primary: #d75502;
+  --primary-foreground: #ffffff;
+  --secondary: #262626;
+  --secondary-foreground: #f5f5f5;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #d75502;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #404040;
+  --input: #1a1a1a;
+  --ring: #d75502;
+  --chart-1: #d75502;
+  --chart-2: #f5f5f5;
+  --chart-3: #262626;
+  --chart-4: #a3a3a3;
+  --chart-5: #d75502;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #d75502;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #262626;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: #404040;
+  --sidebar-ring: #d75502;
 }
 
 @theme inline {
@@ -122,7 +122,24 @@
     @apply border-border outline-ring/50;
   }
   body {
-    font-family: "Comfortaa", cursive, sans-serif;
-    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    line-height: 1.7;
   }
 }

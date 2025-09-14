@@ -1,46 +1,54 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Play, ArrowRight, Users, GraduationCap, Heart, Sparkles } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Play,
+  ArrowRight,
+  Users,
+  GraduationCap,
+  Heart,
+  Sparkles,
+} from "lucide-react";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-card to-muted overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-secondary rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent rounded-full blur-3xl animate-pulse delay-500" />
+    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
+      {/* Subtle accent elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-32 left-8 w-2 h-32 bg-primary opacity-20 rounded-full" />
+        <div className="absolute bottom-32 right-8 w-2 h-32 bg-primary opacity-20 rounded-full" />
+        <div className="absolute top-1/2 right-32 w-1 h-24 bg-primary opacity-10 rounded-full" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 text-center">
+      <div className="relative max-w-6xl mx-auto px-6 text-center">
         {/* Badge */}
-        <Badge variant="secondary" className="mb-6 text-sm px-4 py-2">
-          <Sparkles className="w-4 h-4 mr-2" />
+        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-secondary rounded-full text-sm font-medium text-foreground border border-border">
+          <Sparkles className="w-4 h-4 text-primary" />
           Interactive Storytelling Experience
-        </Badge>
+        </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance leading-tight">
           Transform Lives Through
           <span className="text-primary block">Education</span>
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-          Experience the power of education through interactive stories. Journey with Kenyan students and discover how
-          your support creates lasting change.
+        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          Experience the power of education through interactive stories. Journey
+          with Kenyan students and discover how your support creates lasting
+          change.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
           <Button
             asChild
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg"
           >
             <Link href="/journey" className="flex items-center gap-2">
               <Play className="h-5 w-5" />
@@ -49,7 +57,12 @@ export function HeroSection() {
             </Link>
           </Button>
 
-          <Button asChild variant="outline" size="lg" className="px-8 py-4 text-lg bg-transparent">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="px-8 py-4 text-lg font-medium rounded-lg border-2"
+          >
             <a
               href="https://www.kenyaeducationfund.org"
               target="_blank"
@@ -63,44 +76,50 @@ export function HeroSection() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg">
-            <CardContent className="p-6 text-center">
-              <div className="flex items-center justify-center mb-3">
-                <div className="p-3 bg-primary/20 rounded-full">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <Card className="bg-white border border-border rounded-xl p-0 hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="flex items-center justify-center mb-4">
+                <div className="p-4 bg-primary/5 rounded-xl">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-primary mb-2">4,600+</div>
-              <div className="text-muted-foreground">Scholarships Provided</div>
+              <div className="text-4xl font-bold text-primary mb-2">4,600+</div>
+              <div className="text-muted-foreground font-medium">
+                Scholarships Provided
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg">
-            <CardContent className="p-6 text-center">
-              <div className="flex items-center justify-center mb-3">
-                <div className="p-3 bg-secondary/20 rounded-full">
-                  <GraduationCap className="h-8 w-8 text-secondary" />
+          <Card className="bg-white border border-border rounded-xl p-0 hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="flex items-center justify-center mb-4">
+                <div className="p-4 bg-primary/5 rounded-xl">
+                  <GraduationCap className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-secondary mb-2">99%</div>
-              <div className="text-muted-foreground">Transition Rate to University</div>
+              <div className="text-4xl font-bold text-primary mb-2">99%</div>
+              <div className="text-muted-foreground font-medium">
+                Transition Rate to University
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg">
-            <CardContent className="p-6 text-center">
-              <div className="flex items-center justify-center mb-3">
-                <div className="p-3 bg-accent/20 rounded-full">
-                  <Heart className="h-8 w-8 text-accent" />
+          <Card className="bg-white border border-border rounded-xl p-0 hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="flex items-center justify-center mb-4">
+                <div className="p-4 bg-primary/5 rounded-xl">
+                  <Heart className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-accent mb-2">18+</div>
-              <div className="text-muted-foreground">Years of Impact</div>
+              <div className="text-4xl font-bold text-primary mb-2">18+</div>
+              <div className="text-muted-foreground font-medium">
+                Years of Impact
+              </div>
             </CardContent>
           </Card>
         </div>
       </div>
     </section>
-  )
+  );
 }

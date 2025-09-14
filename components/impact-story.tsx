@@ -1,38 +1,54 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import type { ImpactData } from "@/lib/types"
-import { Heart, ExternalLink, Share2, Download, GraduationCap, Calendar, MapPin, Users, Sparkles } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import type { ImpactData } from "@/lib/types";
+import {
+  Heart,
+  ExternalLink,
+  Share2,
+  Download,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Users,
+  Sparkles,
+} from "lucide-react";
 
 interface ImpactStoryProps {
-  impactData: ImpactData
-  onDonate: () => void
-  onReset: () => void
+  impactData: ImpactData;
+  onDonate: () => void;
+  onReset: () => void;
 }
 
-export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps) {
-  const [isSharing, setIsSharing] = useState(false)
+export function ImpactStory({
+  impactData,
+  onDonate,
+  onReset,
+}: ImpactStoryProps) {
+  const [isSharing, setIsSharing] = useState(false);
 
   const generatePersonalizedStory = () => {
-    const { donorName, amount, impact } = impactData
+    const { donorName, amount, impact } = impactData;
 
     const stories = [
       `${donorName}, your generous donation of $${amount} will transform lives in ${impact.location}. ${impact.specificImpact} You're not just funding education—you're breaking cycles of poverty and opening doors to limitless possibilities.`,
 
       `Dear ${donorName}, with your $${amount} contribution, you're becoming a hero in the story of Kenyan education. Your support will provide ${impact.months} months of educational opportunities in ${impact.location}, creating ripple effects that will benefit entire communities for generations.`,
 
-      `${donorName}, imagine the moment a student receives their diploma, knowing that your $${amount} donation made it possible. In ${impact.location}, your generosity will ${impact.specificImpact.toLowerCase()} This is the power of education—and the power of your compassion.`,
-    ]
+      `${donorName}, imagine the moment a student receives their diploma, knowing that your $${amount} donation made it possible. In ${
+        impact.location
+      }, your generosity will ${impact.specificImpact.toLowerCase()} This is the power of education—and the power of your compassion.`,
+    ];
 
-    return stories[Math.floor(Math.random() * stories.length)]
-  }
+    return stories[Math.floor(Math.random() * stories.length)];
+  };
 
   const handleShare = async () => {
-    setIsSharing(true)
-    const story = generatePersonalizedStory()
+    setIsSharing(true);
+    const story = generatePersonalizedStory();
 
     if (navigator.share) {
       try {
@@ -40,51 +56,57 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
           title: "My Impact with Kenya Education Fund",
           text: story,
           url: window.location.origin,
-        })
+        });
       } catch (err) {
-        console.log("Share cancelled")
+        console.log("Share cancelled");
       }
     } else {
       // Fallback: copy to clipboard
-      await navigator.clipboard.writeText(story)
-      alert("Impact story copied to clipboard!")
+      await navigator.clipboard.writeText(story);
+      alert("Impact story copied to clipboard!");
     }
 
-    setIsSharing(false)
-  }
+    setIsSharing(false);
+  };
 
-  const personalizedStory = generatePersonalizedStory()
+  const personalizedStory = generatePersonalizedStory();
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Hero Impact Card */}
-      <Card className="bg-gradient-to-br from-primary/10 via-card to-secondary/10 border-0 shadow-xl overflow-hidden">
-        <CardHeader className="text-center pb-4">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="h-6 w-6 text-primary animate-pulse" />
-            <Badge variant="secondary" className="text-lg px-4 py-1">
+      <Card className="bg-white border border-border rounded-xl overflow-hidden">
+        <CardHeader className="text-center pb-6">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Sparkles className="h-6 w-6 text-primary" />
+            </div>
+            <span className="text-lg font-medium px-4 py-1 bg-secondary rounded-full border border-border">
               Your Personal Impact
-            </Badge>
+            </span>
           </div>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-balance">
+          <CardTitle className="text-3xl md:text-4xl font-bold leading-tight">
             {"Thank you, "}
             {impactData.donorName}
             {"!"}
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-8">
           {/* Impact Visualization */}
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center p-6 bg-background/50 rounded-lg">
-              <div className="flex items-center justify-center mb-3">
+            <div className="text-center p-6 bg-secondary rounded-xl">
+              <div className="flex items-center justify-center mb-4">
                 <div className="p-3 bg-primary/20 rounded-full">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-primary mb-1">{impactData.impact.students}</div>
+              <div className="text-3xl font-bold text-primary mb-1">
+                {impactData.impact.students}
+              </div>
               <div className="text-sm text-muted-foreground">
-                {impactData.impact.students === 1 ? "Student Supported" : "Students Supported"}
+                {impactData.impact.students === 1
+                  ? "Student Supported"
+                  : "Students Supported"}
               </div>
             </div>
 
@@ -94,9 +116,13 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
                   <Calendar className="h-8 w-8 text-secondary" />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-secondary mb-1">{impactData.impact.months}</div>
+              <div className="text-3xl font-bold text-secondary mb-1">
+                {impactData.impact.months}
+              </div>
               <div className="text-sm text-muted-foreground">
-                {impactData.impact.months === 1 ? "Month of Education" : "Months of Education"}
+                {impactData.impact.months === 1
+                  ? "Month of Education"
+                  : "Months of Education"}
               </div>
             </div>
 
@@ -106,8 +132,12 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
                   <MapPin className="h-8 w-8 text-accent" />
                 </div>
               </div>
-              <div className="text-lg font-bold text-accent mb-1">{impactData.impact.location}</div>
-              <div className="text-sm text-muted-foreground">Impact Location</div>
+              <div className="text-lg font-bold text-accent mb-1">
+                {impactData.impact.location}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Impact Location
+              </div>
             </div>
           </div>
 
@@ -116,8 +146,12 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
             <div className="flex items-start gap-3">
               <Heart className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-primary mb-2">Your Impact Story</h3>
-                <p className="text-foreground/90 leading-relaxed text-pretty">{personalizedStory}</p>
+                <h3 className="font-semibold text-primary mb-2">
+                  Your Impact Story
+                </h3>
+                <p className="text-foreground/90 leading-relaxed text-pretty">
+                  {personalizedStory}
+                </p>
               </div>
             </div>
           </div>
@@ -127,8 +161,12 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
             <div className="flex items-start gap-3">
               <GraduationCap className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold mb-2">What Your ${impactData.amount} Provides</h3>
-                <p className="text-muted-foreground text-pretty">{impactData.impact.specificImpact}</p>
+                <h3 className="font-semibold mb-2">
+                  What Your ${impactData.amount} Provides
+                </h3>
+                <p className="text-muted-foreground text-pretty">
+                  {impactData.impact.specificImpact}
+                </p>
               </div>
             </div>
           </div>
@@ -158,7 +196,12 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
           {isSharing ? "Sharing..." : "Share My Impact"}
         </Button>
 
-        <Button onClick={onReset} variant="ghost" size="lg" className="px-8 py-3 text-lg">
+        <Button
+          onClick={onReset}
+          variant="ghost"
+          size="lg"
+          className="px-8 py-3 text-lg"
+        >
           <Download className="mr-2 h-5 w-5" />
           Try Different Amount
         </Button>
@@ -167,7 +210,9 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
       {/* Additional Info */}
       <Card className="bg-muted/50 border-0">
         <CardContent className="p-6 text-center">
-          <h3 className="font-semibold mb-2">{"100% Direct Impact Guarantee"}</h3>
+          <h3 className="font-semibold mb-2">
+            {"100% Direct Impact Guarantee"}
+          </h3>
           <p className="text-muted-foreground text-pretty">
             {
               "Every dollar you donate goes directly to student support. KEF's operational costs are covered separately by private supporters, ensuring maximum impact for your contribution."
@@ -176,5 +221,5 @@ export function ImpactStory({ impactData, onDonate, onReset }: ImpactStoryProps)
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
