@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Play,
   ArrowRight,
@@ -9,193 +10,252 @@ import {
   GraduationCap,
   Heart,
   Sparkles,
-  MapPin,
+  Award,
+  Globe,
+  TrendingUp,
+  Star,
+  BookOpen,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/17829310-aee3-454a-a303-d24ba14de1d3/Frame+48.png?content-type=image%2Fpng"
-          alt="Kenyan students in classroom"
-          fill
-          className="object-cover opacity-15"
-          priority
-        />
-        <div className="absolute inset-0 bg-white/90" />
+    <section className="relative min-h-screen bg-background overflow-hidden">
+      {/* Simplified Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-muted/30 via-background to-muted/20" />
       </div>
 
-      {/* Subtle accent elements */}
-      <div className="absolute inset-0 z-10">
-        <div className="absolute top-32 left-8 w-2 h-32 bg-primary opacity-20 rounded-full" />
-        <div className="absolute bottom-32 right-8 w-2 h-32 bg-primary opacity-20 rounded-full" />
-        <div className="absolute top-1/2 right-32 w-1 h-24 bg-primary opacity-10 rounded-full" />
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-6 text-center z-20">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-secondary rounded-full text-sm font-medium text-foreground border border-border">
-          <Heart className="w-4 h-4 text-primary" />
-          This is KEF
-        </div>
-
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          We Believe Every Child
-          <span className="text-primary block">Deserves a Future</span>
-        </h1>
-
-        {/* Subheading */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-          The Kenya Education Fund provides scholarships and holistic support to
-          help bright, motivated students break the cycle of poverty through
-          education. For over 18 years, we've been transforming lives, one
-          student at a time.
-        </p>
-
-        {/* Mission Statement */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary">
-            This is what we do
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            We identify students who face financial barriers to education but
-            have the determination to succeed. Through scholarships, mentorship,
-            and ongoing support, we create pathways from poverty to possibility.
-          </p>
-        </div>
-
-        {/* Journey Invitation */}
-        <div className="mb-16 p-8 bg-primary/5 rounded-2xl border border-primary/20 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold mb-4 text-primary">
-            Let's walk through this journey together
-          </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Experience the transformation that happens when education meets
-            opportunity. See how a single scholarship can change not just one
-            life, but entire communities.
-          </p>
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="space-y-4 mb-20">
-          {/* Primary Game CTA - Mobile Optimized */}
-          <div className="flex justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white px-8 py-6 text-xl font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+      <div className="relative z-20 container mx-auto px-6 lg:px-8 py-20 lg:py-32">
+        <div className="max-w-7xl mx-auto">
+          {/* Flat Badge */}
+          <div className="flex justify-center mb-8">
+            <Badge
+              variant="secondary"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-muted border border-border text-foreground font-semibold text-sm"
             >
-              <Link href="/game" className="flex items-center gap-3">
-                <Play className="h-6 w-6" />
-                Start Interactive Game
-                <Sparkles className="h-6 w-6" />
-              </Link>
-            </Button>
+              <Heart className="w-4 h-4 text-primary" />
+              Kenya Education Fund
+              <Sparkles className="w-4 h-4 text-primary" />
+            </Badge>
           </div>
 
-          {/* Secondary Options */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-6 py-3 text-base font-medium rounded-lg border-2"
-              onClick={() => {
-                const element = document.getElementById("journey-section");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              <ArrowRight className="h-4 w-4 mr-2" />
-              Explore Full Story
-            </Button>
+          {/* Hero Content - Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+            {/* Left Column - Text Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 text-foreground leading-tight">
+                Transforming Lives Through
+                <span className="block text-primary">Education in Kenya</span>
+              </h1>
 
-            <Button
-              asChild
-              variant="ghost"
-              size="lg"
-              className="px-6 py-3 text-base font-medium"
-            >
-              <a
-                href="https://www.kenyaeducationfund.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-8">
+                For over 18 years, we've been breaking the cycle of poverty by
+                providing scholarships and comprehensive support to Kenya's
+                brightest students.
+              </p>
+
+              {/* Call to Action */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold"
+                >
+                  <Link href="/game" className="flex items-center gap-3">
+                    <Play className="h-5 w-5" />
+                    Start Interactive Experience
+                  </Link>
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 py-4 text-base font-medium border-2 border-border text-foreground hover:bg-muted"
+                  onClick={() => {
+                    const element = document.getElementById("journey-section");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  <BookOpen className="h-5 w-5 mr-2" />
+                  Learn More
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column - Hero Image */}
+            <div className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden border-2 border-border">
+                <Image
+                  src="/placeholder.jpg"
+                  alt="Kenyan students in classroom - empowering education for brighter futures"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+
+                {/* Flat Stats on Image */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-card border-2 border-border p-4">
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      <div>
+                        <div className="text-2xl font-semibold text-primary">
+                          4,600+
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Students
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-semibold text-primary">
+                          99%
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Success Rate
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-semibold text-primary">
+                          18+
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Years
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mission Highlight */}
+          <div className="mb-16">
+            <div className="max-w-5xl mx-auto bg-card border-2 border-border p-8 lg:p-12">
+              <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
+                  Every Child Deserves a Future
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  We identify students facing financial barriers but with the
+                  determination to succeed. Through scholarships, mentorship,
+                  and ongoing support, we create pathways from poverty to
+                  possibility.
+                </p>
+                <div className="flex items-center justify-center gap-2 text-primary font-medium">
+                  <Globe className="w-5 h-5" />
+                  <span>
+                    Experience their journey through interactive stories
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional CTA Section */}
+          <div className="text-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                variant="ghost"
+                size="lg"
+                className="px-8 py-4 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted"
               >
-                <Heart className="h-4 w-4" />
-                About KEF
-              </a>
-            </Button>
+                <a
+                  href="https://www.kenyaeducationfund.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Heart className="h-5 w-5" />
+                  About KEF
+                </a>
+              </Button>
+            </div>
           </div>
-        </div>
 
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <Card className="bg-white border border-border rounded-xl p-0 hover:shadow-lg transition-shadow duration-300">
-            <CardContent className="p-8 text-center">
+          {/* Detailed Stats Section */}
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            <div className="bg-card border-2 border-border p-8 text-center">
               <div className="flex items-center justify-center mb-4">
-                <div className="p-4 bg-primary/5 rounded-xl">
+                <div className="p-4 bg-muted border border-border">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-4xl font-bold text-primary mb-2">4,600+</div>
-              <div className="text-muted-foreground font-medium">
-                Scholarships Provided
+              <div className="text-4xl font-semibold text-foreground mb-2">
+                4,600+
               </div>
-            </CardContent>
-          </Card>
+              <div className="text-foreground font-medium">
+                Students Supported
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                Since 2006
+              </div>
+            </div>
 
-          <Card className="bg-white border border-border rounded-xl p-0 hover:shadow-lg transition-shadow duration-300">
-            <CardContent className="p-8 text-center">
+            <div className="bg-card border-2 border-border p-8 text-center">
               <div className="flex items-center justify-center mb-4">
-                <div className="p-4 bg-primary/5 rounded-xl">
+                <div className="p-4 bg-muted border border-border">
                   <GraduationCap className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-4xl font-bold text-primary mb-2">99%</div>
-              <div className="text-muted-foreground font-medium">
-                Transition Rate to University
+              <div className="text-4xl font-semibold text-foreground mb-2">
+                99%
               </div>
-            </CardContent>
-          </Card>
+              <div className="text-foreground font-medium">
+                University Transition
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                Success Rate
+              </div>
+            </div>
 
-          <Card className="bg-white border border-border rounded-xl p-0 hover:shadow-lg transition-shadow duration-300">
-            <CardContent className="p-8 text-center">
+            <div className="bg-card border-2 border-border p-8 text-center">
               <div className="flex items-center justify-center mb-4">
-                <div className="p-4 bg-primary/5 rounded-xl">
-                  <Heart className="h-8 w-8 text-primary" />
+                <div className="p-4 bg-muted border border-border">
+                  <Award className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-4xl font-bold text-primary mb-2">18+</div>
-              <div className="text-muted-foreground font-medium">
-                Years of Impact
+              <div className="text-4xl font-semibold text-foreground mb-2">
+                18+
               </div>
-            </CardContent>
-          </Card>
-        </div>
+              <div className="text-foreground font-medium">Years of Impact</div>
+              <div className="text-sm text-muted-foreground mt-1">
+                Proven Results
+              </div>
+            </div>
+          </div>
 
-        {/* Testimonial */}
-        <div className="mt-20 max-w-3xl mx-auto">
-          <Card className="bg-primary/5 border border-primary/20 rounded-xl">
-            <CardContent className="p-8 text-center">
-              <blockquote className="text-lg italic text-foreground leading-relaxed mb-4">
+          {/* Testimonial */}
+          <div className="mt-16">
+            <div className="max-w-4xl mx-auto bg-muted border-2 border-border p-8 lg:p-12 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-6 w-6 text-primary fill-current"
+                    />
+                  ))}
+                </div>
+              </div>
+              <blockquote className="text-xl lg:text-2xl text-foreground leading-relaxed mb-6 font-medium">
                 "There is joy in realizing the changes that happen right in
                 front of you. Their life is forever changed and there is no
                 holding back anymore so they soar."
               </blockquote>
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <cite className="text-sm font-medium text-muted-foreground not-italic">
-                  Norlena-Albert CJ, Deputy Director, Kenya Education Fund
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-0.5 bg-border"></div>
+                <cite className="text-muted-foreground font-medium not-italic">
+                  Norlena-Albert CJ, Deputy Director
                 </cite>
+                <div className="w-12 h-0.5 bg-border"></div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>
