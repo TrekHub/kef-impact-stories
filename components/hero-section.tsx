@@ -50,8 +50,9 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-          Experience the power of education through interactive stories. Journey with Kenyan students and discover how
-          your support creates lasting change.
+          Experience the power of education through interactive stories. Journey
+          with Kenyan students and discover how your support creates lasting
+          change.
         </p>
 
         {/* CTA Buttons */}
@@ -68,7 +69,12 @@ export function HeroSection() {
             </Link>
           </Button>
 
-          <Button asChild variant="outline" size="lg" className="px-8 py-4 text-lg font-medium rounded-lg border-2">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="px-8 py-4 text-lg font-medium rounded-lg border-2"
+          >
             <a
               href="https://www.kenyaeducationfund.org"
               target="_blank"
@@ -91,7 +97,9 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="text-4xl font-bold text-primary mb-2">4,600+</div>
-              <div className="text-muted-foreground font-medium">Scholarships Provided</div>
+              <div className="text-muted-foreground font-medium">
+                Scholarships Provided
+              </div>
             </CardContent>
           </Card>
 
@@ -103,7 +111,9 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="text-4xl font-bold text-primary mb-2">99%</div>
-              <div className="text-muted-foreground font-medium">Transition Rate to University</div>
+              <div className="text-muted-foreground font-medium">
+                Transition Rate to University
+              </div>
             </CardContent>
           </Card>
 
@@ -115,7 +125,9 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="text-4xl font-bold text-primary mb-2">18+</div>
-              <div className="text-muted-foreground font-medium">Years of Impact</div>
+              <div className="text-muted-foreground font-medium">
+                Years of Impact
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -125,8 +137,9 @@ export function HeroSection() {
           <Card className="bg-primary/5 border border-primary/20 rounded-xl">
             <CardContent className="p-8 text-center">
               <blockquote className="text-lg italic text-foreground leading-relaxed mb-4">
-                "There is joy in realizing the changes that happen right in front of you. 
-                Their life is forever changed and there is no holding back anymore so they soar."
+                "There is joy in realizing the changes that happen right in
+                front of you. Their life is forever changed and there is no
+                holding back anymore so they soar."
               </blockquote>
               <div className="flex items-center justify-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
