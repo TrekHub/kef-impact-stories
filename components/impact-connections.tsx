@@ -22,8 +22,7 @@ const impactConnections = [
     id: "ripple-effect",
     title: "The Ripple Effect",
     description: "See how one scholarship creates waves of change",
-    imageUrl:
-      "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/1012e236-6411-4f71-a7c5-797550a3efbf/Layer_2+%289%29.png?content-type=image%2Fpng",
+    imageUrl: "/kef-images/graduation.webp",
     connections: [
       "1 student becomes a doctor",
       "Treats 1,000+ patients annually",
@@ -38,8 +37,7 @@ const impactConnections = [
     id: "community-transformation",
     title: "Community Transformation",
     description: "Watch entire communities evolve through education",
-    imageUrl:
-      "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/b95e816e-3728-4617-a005-c08be8f4fe6c/Layer_2+%288%29.png?content-type=image%2Fpng",
+    imageUrl: "/kef-images/students-outside.jpg",
     connections: [
       "KEF graduates return as teachers",
       "Local school quality improves",
@@ -54,8 +52,7 @@ const impactConnections = [
     id: "generational-impact",
     title: "Generational Impact",
     description: "Experience how education transforms generations",
-    imageUrl:
-      "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/cae49637-4f85-49b1-b109-e63c30e69b4f/Layer_2+%286%29.png?content-type=image%2Fpng",
+    imageUrl: "/kef-images/IMG_1881.jpg",
     connections: [
       "Educated mothers prioritize children's education",
       "Family income increases significantly",

@@ -197,7 +197,9 @@ export function InteractiveExperience() {
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="relative h-64">
             <Image
-              src={selectedHotspot?.story.imageUrl || "/placeholder.svg"}
+              src={
+                selectedHotspot?.story.imageUrl || "/kef-images/students.jpg"
+              }
               alt={selectedHotspot?.story.studentName || "Student"}
               fill
               className="object-cover"

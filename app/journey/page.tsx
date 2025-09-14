@@ -178,10 +178,7 @@ export default function JourneyPage() {
               {/* Story Image */}
               <div className="relative h-64">
                 <Image
-                  src={
-                    story.scenes[0]?.imageUrl ||
-                    "https://images.unsplash.com/photo-1594736797933-d0d9c83d2577?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                  }
+                  src={story.scenes[0]?.imageUrl || "/kef-images/students.jpg"}
                   alt={story.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"

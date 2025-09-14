@@ -9,7 +9,7 @@
           "id": "silvia-start",
           "title": "A Dream Deferred",
           "content": "Silvia sits outside her family's small home in rural Kenya, watching her younger siblings play. At 14, she dreams of becoming a doctor, but her family can't afford the $400 needed for secondary school fees. Her father works as a day laborer, earning barely enough to feed the family.",
-          "imageUrl": "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/cae49637-4f85-49b1-b109-e63c30e69b4f/Layer_2+%286%29.png?content-type=image%2Fpng",
+          "imageUrl": "/kef-images/IMG_1730.jpg",
           "choices": [
             {
               "id": "choice-1a",
@@ -27,7 +27,7 @@
           "id": "silvia-work",
           "title": "The Cycle Continues",
           "content": "Without education, Silvia is married at 16 and has her first child at 17. Like 60% of girls in her community, she becomes trapped in the cycle of poverty. Her dreams of becoming a doctor fade as she struggles to provide for her own children.",
-          "imageUrl": "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/17829310-aee3-454a-a303-d24ba14de1d3/Frame+48.png?content-type=image%2Fpng",
+          "imageUrl": "/kef-images/DSC_0001.jpg",
           "choices": [
             {
               "id": "choice-2a",
@@ -40,7 +40,7 @@
           "id": "silvia-school",
           "title": "The Power of Education",
           "content": "With KEF's support, Silvia excels in secondary school. She receives not just tuition, but also uniforms, books, and sanitary pads that keep her in school. Her confidence grows as she tops her class in science subjects. Teachers encourage her to pursue medicine.",
-          "imageUrl": "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/b95e816e-3728-4617-a005-c08be8f4fe6c/Layer_2+%288%29.png?content-type=image%2Fpng",
+          "imageUrl": "/kef-images/students.jpg",
           "choices": [
             {
               "id": "choice-3a",
@@ -53,7 +53,7 @@
           "id": "silvia-university",
           "title": "Dreams Realized",
           "content": "Today, Dr. Silvia Wanjiku works at Kenyatta National Hospital, saving lives and inspiring other young girls in her community. She sponsors three KEF students herself, continuing the cycle of transformation. Her success story shows that education doesn't just change one life—it transforms entire communities.",
-          "imageUrl": "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/1012e236-6411-4f71-a7c5-797550a3efbf/Layer_2+%289%29.png?content-type=image%2Fpng",
+          "imageUrl": "/kef-images/graduation.webp",
           "choices": [],
           "isEnding": true
         }
@@ -68,7 +68,7 @@
           "id": "sawa-start",
           "title": "Between Cattle and Books",
           "content": "Sawa tends to his family's cattle in the arid lands of Turkana. At 15, he's expected to become a full-time herder, but he dreams of engineering. The nearest secondary school is 20km away, and his family sees no value in education when cattle need tending.",
-          "imageUrl": "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/b95e816e-3728-4617-a005-c08be8f4fe6c/Layer_2+%288%29.png?content-type=image%2Fpng",
+          "imageUrl": "/kef-images/IMG_1839.jpg",
           "choices": [
             {
               "id": "choice-s1a",

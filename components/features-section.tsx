@@ -172,7 +172,7 @@ export function FeaturesSection() {
             <div className="relative">
               <div className="aspect-[4/3] relative rounded-xl overflow-hidden border border-border">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/1012e236-6411-4f71-a7c5-797550a3efbf/Layer_2+%289%29.png?content-type=image%2Fpng"
+                  src="/kef-images/DSC_0035.jpg"
                   alt="KEF students celebrating graduation"
                   fill
                   className="object-cover"

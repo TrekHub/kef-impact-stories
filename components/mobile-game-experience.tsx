@@ -48,8 +48,7 @@ const characterProfiles = [
     location: "Rural Kenya",
     dream: "Become a Doctor",
     challenge: "Family can't afford $400 school fees",
-    imageUrl:
-      "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/cae49637-4f85-49b1-b109-e63c30e69b4f/Layer_2+%286%29.png?content-type=image%2Fpng",
+    imageUrl: "/kef-images/IMG_1730.jpg",
     color: "bg-pink-500",
     emoji: "👩‍⚕️",
     storyId: "silvia-story",
@@ -61,8 +60,7 @@ const characterProfiles = [
     location: "Turkana Desert",
     dream: "Become an Engineer",
     challenge: "Expected to tend cattle, school 20km away",
-    imageUrl:
-      "https://images.squarespace-cdn.com/content/674774e95d92814e89fc20b1/b95e816e-3728-4617-a005-c08be8f4fe6c/Layer_2+%288%29.png?content-type=image%2Fpng",
+    imageUrl: "/kef-images/IMG_1839.jpg",
     color: "bg-blue-500",
     emoji: "👨‍🔬",
     storyId: "sawa-story",
