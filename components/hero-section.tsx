@@ -9,6 +9,7 @@ import {
   GraduationCap,
   Heart,
   Sparkles,
+  MapPin,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -38,35 +39,62 @@ export function HeroSection() {
       <div className="relative max-w-6xl mx-auto px-6 text-center z-20">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-secondary rounded-full text-sm font-medium text-foreground border border-border">
-          <Sparkles className="w-4 h-4 text-primary" />
-          Interactive Storytelling Experience
+          <Heart className="w-4 h-4 text-primary" />
+          This is KEF
         </div>
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Transform Lives Through
-          <span className="text-primary block">Education</span>
+          We Believe Every Child
+          <span className="text-primary block">Deserves a Future</span>
         </h1>
 
         {/* Subheading */}
         <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-          Experience the power of education through interactive stories. Journey
-          with Kenyan students and discover how your support creates lasting
-          change.
+          The Kenya Education Fund provides scholarships and holistic support to
+          help bright, motivated students break the cycle of poverty through
+          education. For over 18 years, we've been transforming lives, one
+          student at a time.
         </p>
+
+        {/* Mission Statement */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary">
+            This is what we do
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            We identify students who face financial barriers to education but
+            have the determination to succeed. Through scholarships, mentorship,
+            and ongoing support, we create pathways from poverty to possibility.
+          </p>
+        </div>
+
+        {/* Journey Invitation */}
+        <div className="mb-16 p-8 bg-primary/5 rounded-2xl border border-primary/20 max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold mb-4 text-primary">
+            Let's walk through this journey together
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Experience the transformation that happens when education meets
+            opportunity. See how a single scholarship can change not just one
+            life, but entire communities.
+          </p>
+        </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
           <Button
-            asChild
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg"
+            onClick={() => {
+              const element = document.getElementById("journey-section");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
-            <Link href="/journey" className="flex items-center gap-2">
-              <Play className="h-5 w-5" />
-              Start Your Journey
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <ArrowRight className="h-5 w-5 mr-2" />
+            Begin the Journey
           </Button>
 
           <Button
