@@ -45,58 +45,58 @@ export function FeaturesSection() {
 
   return (
     <>
-      <section className="py-24 bg-secondary/30">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white rounded-full text-sm font-medium text-foreground border border-border">
+      <section className="py-16 md:py-24 bg-muted/20">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-card border-2 border-border rounded-lg text-sm font-medium text-foreground">
               <Sparkles className="w-4 h-4 text-primary" />
               Three-Step Journey
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 leading-tight">
               {"An Emotional Journey to Action"}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {
                 "Our gamified experience takes you through feeling, learning, and acting—creating a deeper connection with the cause of education in Kenya."
               }
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card
+                <div
                   key={feature.title}
-                  className="relative bg-white border border-border rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300"
+                  className="relative bg-card border-2 border-border rounded-lg overflow-hidden group hover:bg-muted/50 transition-colors duration-200"
                 >
                   {/* Step Number */}
-                  <div className="absolute top-6 right-6">
-                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-sm font-bold text-primary">
+                  <div className="absolute top-4 md:top-6 right-4 md:right-6">
+                    <div className="w-7 md:w-8 h-7 md:h-8 bg-muted border border-border rounded-lg flex items-center justify-center text-sm font-semibold text-primary">
                       {index + 1}
                     </div>
                   </div>
 
-                  <CardHeader className="pb-4">
+                  <div className="p-4 md:p-6 pb-3 md:pb-4">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 bg-primary/5 rounded-xl">
-                        <Icon className="h-6 w-6 text-primary" />
+                      <div className="p-2 md:p-3 bg-muted border border-border rounded-lg">
+                        <Icon className="h-5 md:h-6 w-5 md:w-6 text-primary" />
                       </div>
-                      <span className="text-xs font-medium px-3 py-1 bg-secondary rounded-full border border-border">
+                      <span className="text-xs font-medium px-3 py-1 bg-muted border border-border rounded-md">
                         {feature.badge}
                       </span>
                     </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                    <h3 className="text-lg md:text-xl font-semibold group-hover:text-primary transition-colors mb-3">
                       {feature.title}
-                    </CardTitle>
-                  </CardHeader>
+                    </h3>
+                  </div>
 
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
+                  <div className="px-4 md:px-6 pb-4 md:pb-6">
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                       {feature.description}
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               );
             })}
           </div>

@@ -33,7 +33,7 @@ export function HeroSection() {
           <div className="flex justify-center mb-8">
             <Badge
               variant="secondary"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-muted border border-border text-foreground font-semibold text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-muted border border-border text-foreground font-semibold text-sm rounded-lg"
             >
               <Heart className="w-4 h-4 text-primary" />
               Kenya Education Fund
@@ -88,10 +88,10 @@ export function HeroSection() {
 
             {/* Right Column - Hero Image */}
             <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden border-2 border-border">
+              <div className="relative aspect-[4/3] overflow-hidden border-2 border-border rounded-lg">
                 <Image
-                  src="/placeholder.jpg"
-                  alt="Kenyan students in classroom - empowering education for brighter futures"
+                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1532&q=80"
+                  alt="Kenyan high school students in classroom - empowering education for brighter futures"
                   fill
                   className="object-cover"
                   priority
@@ -99,10 +99,10 @@ export function HeroSection() {
 
                 {/* Flat Stats on Image */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-card border-2 border-border p-4">
-                    <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="bg-card border-2 border-border rounded-lg p-3 md:p-4">
+                    <div className="grid grid-cols-3 gap-2 md:gap-4 text-center">
                       <div>
-                        <div className="text-2xl font-semibold text-primary">
+                        <div className="text-lg md:text-2xl font-semibold text-primary">
                           4,600+
                         </div>
                         <div className="text-xs text-muted-foreground">
@@ -110,7 +110,7 @@ export function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-2xl font-semibold text-primary">
+                        <div className="text-lg md:text-2xl font-semibold text-primary">
                           99%
                         </div>
                         <div className="text-xs text-muted-foreground">
@@ -118,7 +118,7 @@ export function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-2xl font-semibold text-primary">
+                        <div className="text-lg md:text-2xl font-semibold text-primary">
                           18+
                         </div>
                         <div className="text-xs text-muted-foreground">
@@ -134,7 +134,7 @@ export function HeroSection() {
 
           {/* Mission Highlight */}
           <div className="mb-16">
-            <div className="max-w-5xl mx-auto bg-card border-2 border-border p-8 lg:p-12">
+            <div className="max-w-5xl mx-auto bg-card border-2 border-border rounded-lg p-6 md:p-8 lg:p-12">
               <div className="text-center">
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
                   Every Child Deserves a Future
@@ -178,14 +178,14 @@ export function HeroSection() {
           </div>
 
           {/* Detailed Stats Section */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            <div className="bg-card border-2 border-border p-8 text-center">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-20">
+            <div className="bg-card border-2 border-border rounded-lg p-6 md:p-8 text-center">
               <div className="flex items-center justify-center mb-4">
-                <div className="p-4 bg-muted border border-border">
-                  <Users className="h-8 w-8 text-primary" />
+                <div className="p-3 md:p-4 bg-muted border border-border rounded-lg">
+                  <Users className="h-6 md:h-8 w-6 md:w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-4xl font-semibold text-foreground mb-2">
+              <div className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
                 4,600+
               </div>
               <div className="text-foreground font-medium">
@@ -196,13 +196,13 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="bg-card border-2 border-border p-8 text-center">
+            <div className="bg-card border-2 border-border rounded-lg p-6 md:p-8 text-center">
               <div className="flex items-center justify-center mb-4">
-                <div className="p-4 bg-muted border border-border">
-                  <GraduationCap className="h-8 w-8 text-primary" />
+                <div className="p-3 md:p-4 bg-muted border border-border rounded-lg">
+                  <GraduationCap className="h-6 md:h-8 w-6 md:w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-4xl font-semibold text-foreground mb-2">
+              <div className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
                 99%
               </div>
               <div className="text-foreground font-medium">
@@ -213,13 +213,13 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="bg-card border-2 border-border p-8 text-center">
+            <div className="bg-card border-2 border-border rounded-lg p-6 md:p-8 text-center">
               <div className="flex items-center justify-center mb-4">
-                <div className="p-4 bg-muted border border-border">
-                  <Award className="h-8 w-8 text-primary" />
+                <div className="p-3 md:p-4 bg-muted border border-border rounded-lg">
+                  <Award className="h-6 md:h-8 w-6 md:w-8 text-primary" />
                 </div>
               </div>
-              <div className="text-4xl font-semibold text-foreground mb-2">
+              <div className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
                 18+
               </div>
               <div className="text-foreground font-medium">Years of Impact</div>
@@ -231,28 +231,28 @@ export function HeroSection() {
 
           {/* Testimonial */}
           <div className="mt-16">
-            <div className="max-w-4xl mx-auto bg-muted border-2 border-border p-8 lg:p-12 text-center">
+            <div className="max-w-4xl mx-auto bg-muted border-2 border-border rounded-lg p-6 md:p-8 lg:p-12 text-center">
               <div className="flex justify-center mb-6">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-6 w-6 text-primary fill-current"
+                      className="h-5 md:h-6 w-5 md:w-6 text-primary fill-current"
                     />
                   ))}
                 </div>
               </div>
-              <blockquote className="text-xl lg:text-2xl text-foreground leading-relaxed mb-6 font-medium">
+              <blockquote className="text-lg md:text-xl lg:text-2xl text-foreground leading-relaxed mb-6 font-medium">
                 "There is joy in realizing the changes that happen right in
                 front of you. Their life is forever changed and there is no
                 holding back anymore so they soar."
               </blockquote>
               <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-0.5 bg-border"></div>
-                <cite className="text-muted-foreground font-medium not-italic">
+                <div className="w-8 md:w-12 h-0.5 bg-border"></div>
+                <cite className="text-muted-foreground font-medium not-italic text-sm md:text-base">
                   Norlena-Albert CJ, Deputy Director
                 </cite>
-                <div className="w-12 h-0.5 bg-border"></div>
+                <div className="w-8 md:w-12 h-0.5 bg-border"></div>
               </div>
             </div>
           </div>

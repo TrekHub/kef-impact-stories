@@ -86,7 +86,7 @@
           "id": "sawa-traditional",
           "title": "The Old Ways",
           "content": "Sawa becomes a skilled herder but struggles as climate change makes pastoralism increasingly difficult. Droughts become more frequent, and cattle die. Without education or alternative skills, he faces a future of uncertainty and poverty.",
-          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "imageUrl": "https://images.unsplash.com/photo-1476888242162-cfa0073c227b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
           "choices": [
             {
               "id": "choice-s2a",
@@ -99,7 +99,7 @@
           "id": "sawa-education",
           "title": "New Horizons",
           "content": "At boarding school, Sawa discovers his talent for mathematics and physics. KEF's holistic support includes counseling to help him navigate between his traditional culture and modern education. He learns that he can honor his heritage while building a different future.",
-          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
           "choices": [
             {
               "id": "choice-s3a",
@@ -112,7 +112,7 @@
           "id": "sawa-engineer",
           "title": "Building the Future",
           "content": "Engineer Sawa Lokwawi now designs water systems for pastoral communities across Northern Kenya. His innovations help families adapt to climate change while preserving their cultural identity. He's living proof that education amplifies rather than erases cultural heritage.",
-          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "imageUrl": "https://images.unsplash.com/photo-1581092787765-e3d8b6a1ec64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
           "choices": [],
           "isEnding": true
         }
