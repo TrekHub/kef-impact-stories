@@ -2,57 +2,57 @@
   "stories": [
     {
       "id": "silvia-story",
-      "title": "Silvia's Journey",
-      "description": "Follow Silvia, a bright 14-year-old girl from rural Kenya, as she navigates the challenges of pursuing her education.",
+      "title": "Silvia's Journey: From Dreams to Doctor",
+      "description": "Walk alongside Silvia, a brilliant 14-year-old from rural Kenya, whose unwavering determination to become a doctor faces seemingly impossible barriers. Your choices will determine whether her dreams survive or fade away.",
       "scenes": [
         {
           "id": "silvia-start",
-          "title": "A Dream Deferred",
-          "content": "Silvia sits outside her family's small home in rural Kenya, watching her younger siblings play. At 14, she dreams of becoming a doctor, but her family can't afford the $400 needed for secondary school fees. Her father works as a day laborer, earning barely enough to feed the family.",
+          "title": "A Dream Against All Odds",
+          "content": "The evening light casts long shadows as 14-year-old Silvia sits beneath the acacia tree outside her family's modest mud-brick home. In her hands, she clutches a worn biology textbook borrowed from her primary school teacher. Her eyes sparkle with determination as she whispers to herself, 'I will become a doctor.' But reality is harsh in rural Kenya. Her father, a day laborer, earns just 200 shillings ($1.50) on good days. The $400 needed for secondary school fees might as well be a million. Around her, most girls her age are already being prepared for early marriage. Yet Silvia dares to dream differently.",
           "imageUrl": "/kef-images/IMG_1730.jpg",
           "choices": [
             {
               "id": "choice-1a",
-              "text": "Silvia decides to work to help her family instead of going to school",
+              "text": "Silvia accepts her fate and helps her family by working in the fields",
               "nextSceneId": "silvia-work"
             },
             {
               "id": "choice-1b",
-              "text": "Silvia's family receives a KEF scholarship",
+              "text": "A KEF scholarship arrives, offering hope and a chance at education",
               "nextSceneId": "silvia-school"
             }
           ]
         },
         {
           "id": "silvia-work",
-          "title": "The Cycle Continues",
-          "content": "Without education, Silvia is married at 16 and has her first child at 17. Like 60% of girls in her community, she becomes trapped in the cycle of poverty. Her dreams of becoming a doctor fade as she struggles to provide for her own children.",
+          "title": "Dreams Deferred, Cycle Continues",
+          "content": "Two years later, Silvia's hands are calloused from field work and her eyes have lost their spark. At 16, she's married to a man twice her age in exchange for three cows - her bride price. By 17, she cradles her firstborn while watching other children walk to school with their books. The biology textbook she once treasured now gathers dust. Like 60% of girls in her community, Silvia has become another statistic in the cycle of poverty. Her daughter will likely face the same fate. The village clinic, where she once dreamed of working as a doctor, remains understaffed and underfunded.",
           "imageUrl": "/kef-images/DSC_0001.jpg",
           "choices": [
             {
               "id": "choice-2a",
-              "text": "See how education could have changed everything",
+              "text": "Discover how education could have transformed everything",
               "nextSceneId": "silvia-school"
             }
           ]
         },
         {
           "id": "silvia-school",
-          "title": "The Power of Education",
-          "content": "With KEF's support, Silvia excels in secondary school. She receives not just tuition, but also uniforms, books, and sanitary pads that keep her in school. Her confidence grows as she tops her class in science subjects. Teachers encourage her to pursue medicine.",
+          "title": "The Transformation Begins",
+          "content": "With KEF's comprehensive support, Silvia's world transforms overnight. Not only are her school fees covered, but she receives new uniforms, textbooks, scientific calculators, and even sanitary pads that ensure she never misses school. Most importantly, she gains access to counseling and mentorship that builds her confidence. In chemistry class, she excels beyond her wildest dreams, earning the highest marks in her district. Her teacher, Dr. Mwangi, takes special interest in her potential. 'Silvia,' he says, 'I see a future doctor in you.' For the first time, her dream feels achievable. She forms study groups with other KEF scholars, and together they create a support network that lifts each other up.",
           "imageUrl": "/kef-images/students.jpg",
           "choices": [
             {
               "id": "choice-3a",
-              "text": "Follow Silvia to university",
+              "text": "Follow Silvia's journey to medical school and beyond",
               "nextSceneId": "silvia-university"
             }
           ]
         },
         {
           "id": "silvia-university",
-          "title": "Dreams Realized",
-          "content": "Today, Dr. Silvia Wanjiku works at Kenyatta National Hospital, saving lives and inspiring other young girls in her community. She sponsors three KEF students herself, continuing the cycle of transformation. Her success story shows that education doesn't just change one life—it transforms entire communities.",
+          "title": "Dr. Silvia: A Dream Realized, A Community Transformed",
+          "content": "Today, Dr. Silvia Wanjiku strides through the corridors of Kenyatta National Hospital in her crisp white coat, stethoscope around her neck, carrying the dreams of her entire village with her. She's not just treating patients - she's rewriting the narrative for rural girls across Kenya. Every life she saves honors the investment KEF made in her. But her impact extends far beyond the hospital walls. Back in her village, she's built a scholarship fund that has already sent 15 girls to secondary school. She mentors young women, showing them that the girl who once sat under an acacia tree reading a borrowed textbook can become anything she sets her mind to. Her younger sister is now studying engineering, inspired by Silvia's journey. The ripple effect of one KEF scholarship has transformed an entire community's understanding of what's possible.",
           "imageUrl": "/kef-images/graduation.webp",
           "choices": [],
           "isEnding": true
@@ -61,57 +61,57 @@
     },
     {
       "id": "sawa-story",
-      "title": "Sawa's Path",
-      "description": "Experience the journey of Sawa, a 15-year-old boy from Turkana, as education opens doors to a brighter future.",
+      "title": "Sawa's Path: Engineering Hope in the Desert",
+      "description": "Journey with Sawa, a 15-year-old Turkana boy caught between ancient traditions and modern possibilities. In the harsh desert landscape where survival depends on cattle, can engineering dreams take root? Your choices will shape whether tradition and progress can coexist.",
       "scenes": [
         {
           "id": "sawa-start",
-          "title": "Between Cattle and Books",
-          "content": "Sawa tends to his family's cattle in the arid lands of Turkana. At 15, he's expected to become a full-time herder, but he dreams of engineering. The nearest secondary school is 20km away, and his family sees no value in education when cattle need tending.",
+          "title": "Between Ancient Wisdom and Modern Dreams",
+          "content": "Under the scorching Turkana sun, 15-year-old Sawa guides his family's precious cattle to a water point that's growing more distant each year. His hands are weathered beyond his age, and his eyes scan the horizon for threats to their herd - their only source of survival. Yet hidden in his leather pouch is a crumpled mathematics exercise book, pages filled with calculations that fascinate him more than cattle counts. At night, while his family sleeps, Sawa studies by moonlight, dreaming of engineering solutions to the water crisis that plagues his people. But his father expects him to follow the path of his ancestors - a full-time pastoralist. The nearest secondary school is 20 kilometers away across dangerous terrain. 'Education is for the city people,' his father says. 'Our wealth is in our cattle.' Yet Sawa wonders: what if engineering could help his people and their cattle thrive together?",
           "imageUrl": "/kef-images/IMG_1839.jpg",
           "choices": [
             {
               "id": "choice-s1a",
-              "text": "Sawa stays with the cattle, following tradition",
+              "text": "Sawa honors tradition and remains with the cattle, abandoning his dreams",
               "nextSceneId": "sawa-traditional"
             },
             {
               "id": "choice-s1b",
-              "text": "KEF provides a scholarship and boarding support",
+              "text": "KEF provides a scholarship and culturally-sensitive boarding support",
               "nextSceneId": "sawa-education"
             }
           ]
         },
         {
           "id": "sawa-traditional",
-          "title": "The Old Ways",
-          "content": "Sawa becomes a skilled herder but struggles as climate change makes pastoralism increasingly difficult. Droughts become more frequent, and cattle die. Without education or alternative skills, he faces a future of uncertainty and poverty.",
+          "title": "When Dreams Meet Drought",
+          "content": "Five years later, Sawa has become a skilled herder, knowing every watering hole and grazing area across the vast Turkana landscape. But climate change has turned against his people. The droughts come more frequently now, lasting longer and hitting harder. The cattle that once numbered in hundreds have dwindled to dozens. Ancient migration routes are blocked by modern boundaries. Sawa watches helplessly as his youngest sister drops out of school because there's no money for fees. His mathematical mind understands the patterns - the rains are becoming unpredictable, the land degraded. He sketches water harvesting ideas in the sand, only to watch the wind erase them. Without education or alternative skills, his community faces an uncertain future. Sawa realizes that preserving tradition might require embracing innovation.",
           "imageUrl": "/kef-images/IMG_1759.jpg",
           "choices": [
             {
               "id": "choice-s2a",
-              "text": "Discover how education could provide alternatives",
+              "text": "Explore how education could provide sustainable solutions for pastoral communities",
               "nextSceneId": "sawa-education"
             }
           ]
         },
         {
           "id": "sawa-education",
-          "title": "New Horizons",
-          "content": "At boarding school, Sawa discovers his talent for mathematics and physics. KEF's holistic support includes counseling to help him navigate between his traditional culture and modern education. He learns that he can honor his heritage while building a different future.",
+          "title": "Bridging Worlds: Tradition Meets Innovation",
+          "content": "At Lodwar Secondary School's boarding facility, Sawa discovers that education doesn't mean abandoning his identity - it means amplifying it. KEF's holistic approach includes cultural counseling that helps him navigate between two worlds. His Turkana language skills become an asset when he volunteers to translate for international researchers studying pastoralism. In physics class, he applies concepts to understand solar pumps and wind-powered water systems. His mathematics teacher, amazed by his intuitive understanding of geometric patterns found in traditional Turkana beadwork, encourages him to consider engineering. Sawa excels not despite his cultural background, but because of it. He learns that the engineering solutions his community needs must respect and enhance traditional knowledge, not replace it. During school breaks, he returns home with new ideas for drought-resistant practices that complement age-old wisdom.",
           "imageUrl": "/kef-images/IMG_1727.jpg",
           "choices": [
             {
               "id": "choice-s3a",
-              "text": "See Sawa's impact on his community",
+              "text": "Witness how Sawa revolutionizes pastoral life through engineering innovation",
               "nextSceneId": "sawa-engineer"
             }
           ]
         },
         {
           "id": "sawa-engineer",
-          "title": "Building the Future",
-          "content": "Engineer Sawa Lokwawi now designs water systems for pastoral communities across Northern Kenya. His innovations help families adapt to climate change while preserving their cultural identity. He's living proof that education amplifies rather than erases cultural heritage.",
+          "title": "Engineering a Water Revolution: Where Ancient Wisdom Meets Modern Innovation",
+          "content": "Engineer Sawa Lokwawi stands beside a solar-powered borehole he designed, watching as crystal-clear water flows into traditional Turkana gourds held by children who will never know the thirst he once experienced. His engineering firm, 'Desert Bloom Technologies,' has revolutionized water access across Northern Kenya, installing over 200 community water systems that blend cutting-edge technology with traditional water management practices. But Sawa's innovation goes deeper than technology - he's pioneered a community engagement model that ensures local ownership and maintenance of these systems. His team includes both engineers and traditional water diviners, creating solutions that respect cultural knowledge while providing reliable water access. Today, he's mentoring 12 young Turkana engineers, showing them that their heritage is their greatest asset. The boy who once chose between cattle and books has proven that the choice was never either-or - it was about creating a both-and future where tradition and progress dance together in the desert wind.",
           "imageUrl": "/kef-images/IMG_1788.jpg",
           "choices": [],
           "isEnding": true
