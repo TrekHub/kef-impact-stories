@@ -1,77 +1,84 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --background: #fdf2d6;
+  --foreground: #224e6d;
+  --card: #fdf2d6;
+  --card-foreground: #224e6d;
+  --popover: #fdf2d6;
+  --popover-foreground: #224e6d;
+  --primary: #f5690d;
+  --primary-foreground: #fdf2d6;
+  --secondary: #224e6d;
+  --secondary-foreground: #fdf2d6;
+  --muted: #224e6d;
+  --muted-foreground: #fdf2d6;
+  --accent: #f5690d;
+  --accent-foreground: #fdf2d6;
+  --destructive: #f5690d;
+  --destructive-foreground: #fdf2d6;
+  --border: #224e6d;
+  --input: #fdf2d6;
+  --ring: #f5690d;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #fdf2d6;
+  --sidebar-foreground: #224e6d;
+  --sidebar-primary: #f5690d;
+  --sidebar-primary-foreground: #fdf2d6;
+  --sidebar-accent: #224e6d;
+  --sidebar-accent-foreground: #fdf2d6;
+  --sidebar-border: #224e6d;
+  --sidebar-ring: #f5690d;
+
+  /* Custom Theme Colors */
+  --custom-primary: #f5690d;
+  --custom-secondary: #224e6d;
+  --custom-background: #fdf2d6;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: #224e6d;
+  --foreground: #fdf2d6;
+  --card: #224e6d;
+  --card-foreground: #fdf2d6;
+  --popover: #224e6d;
+  --popover-foreground: #fdf2d6;
+  --primary: #f5690d;
+  --primary-foreground: #fdf2d6;
+  --secondary: #fdf2d6;
+  --secondary-foreground: #224e6d;
+  --muted: #fdf2d6;
+  --muted-foreground: #224e6d;
+  --accent: #f5690d;
+  --accent-foreground: #fdf2d6;
+  --destructive: #f5690d;
+  --destructive-foreground: #fdf2d6;
+  --border: #fdf2d6;
+  --input: #224e6d;
+  --ring: #f5690d;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar: #224e6d;
+  --sidebar-foreground: #fdf2d6;
+  --sidebar-primary: #f5690d;
+  --sidebar-primary-foreground: #fdf2d6;
+  --sidebar-accent: #fdf2d6;
+  --sidebar-accent-foreground: #224e6d;
+  --sidebar-border: #fdf2d6;
+  --sidebar-ring: #f5690d;
 }
 
 @theme inline {
@@ -120,6 +127,7 @@
     @apply border-border outline-ring/50;
   }
   body {
+    font-family: "Comfortaa", cursive, sans-serif;
     @apply bg-background text-foreground;
   }
 }
