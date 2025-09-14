@@ -102,6 +102,98 @@
   }
 }
 
+/* Enhanced shadow glow for progress bars */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(215, 85, 2, 0.3);
+}
+
+/* Floating animation for decorative elements */
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Subtle bounce for achievement notifications */
+.achievement-bounce {
+  animation: achievement-bounce 0.6s ease-out;
+}
+
+@keyframes achievement-bounce {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Smooth slide-in animation for cards */
+.slide-in-up {
+  animation: slide-in-up 0.5s ease-out;
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced focus states for accessibility */
+button:focus-visible,
+.focusable:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(215, 85, 2, 0.2);
+}
+
+/* Smooth color transitions for interactive elements */
+.interactive-color {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ripple effect for buttons */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
 /* Typing effect for text reveals */
 .typing-reveal {
   overflow: hidden;
