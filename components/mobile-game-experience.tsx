@@ -53,8 +53,16 @@ const characterProfiles = [
     challenge: "Family can't afford $400 school fees",
     imageUrl: "/kef-images/IMG_1730.jpg",
     color: "bg-pink-500",
+    gradientColor: "from-pink-500 to-rose-600",
     emoji: "👩‍⚕️",
     storyId: "silvia-story",
+    difficulty: "High Impact",
+    description: "A brilliant student with unwavering determination",
+    stats: {
+      education: 85,
+      determination: 95,
+      potential: 90,
+    },
   },
   {
     id: "sawa",
@@ -65,8 +73,16 @@ const characterProfiles = [
     challenge: "Expected to tend cattle, school 20km away",
     imageUrl: "/kef-images/IMG_1839.jpg",
     color: "bg-blue-500",
+    gradientColor: "from-blue-500 to-indigo-600",
     emoji: "👨‍🔬",
     storyId: "sawa-story",
+    difficulty: "High Impact",
+    description: "An innovative thinker facing traditional barriers",
+    stats: {
+      education: 80,
+      determination: 90,
+      potential: 95,
+    },
   },
 ];
 
@@ -443,93 +459,170 @@ export function MobileGameExperience() {
         </div>
 
         {/* Enhanced character cards */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           {characterProfiles.map((character, index) => (
             <Card
               key={character.id}
               data-character={character.id}
-              className="cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl border-2 hover:border-primary/50 group overflow-hidden bg-gradient-to-br from-white to-gray-50 card-interactive"
+              className="cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border-0 group overflow-hidden bg-white/80 backdrop-blur-sm card-interactive character-card-hover relative w-full"
               onClick={() => selectCharacter(character.id)}
             >
-              <CardContent className="p-0">
-                <div className="grid grid-cols-3 gap-0 h-40">
+              {/* Gradient border effect */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${character.gradientColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg`}
+                style={{ padding: "2px" }}
+              >
+                <div className="bg-white rounded-lg h-full w-full"></div>
+              </div>
+
+              <CardContent className="p-0 relative z-10 overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-0 min-h-0">
                   {/* Enhanced image section */}
-                  <div className="relative overflow-hidden">
+                  <div className="relative h-48 md:h-52 md:col-span-2 overflow-hidden">
                     <Image
                       src={character.imageUrl}
                       alt={character.name}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
-                    <div
-                      className={`absolute inset-0 ${character.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
 
-                    {/* Character emoji and number */}
-                    <div className="absolute bottom-3 left-3">
-                      <div className="text-3xl drop-shadow-2xl filter">
-                        {character.emoji}
-                      </div>
-                    </div>
-                    <div className="absolute top-3 right-3">
-                      <div className="w-8 h-8 bg-white/95 rounded-full flex items-center justify-center text-sm font-bold shadow-lg border border-gray-200">
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${character.gradientColor} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
+                    />
+
+                    {/* Character number badge */}
+                    <div className="absolute top-4 left-4">
+                      <div
+                        className={`w-12 h-12 bg-gradient-to-br ${character.gradientColor} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-xl border-2 border-white/30`}
+                      >
                         {index + 1}
                       </div>
                     </div>
 
-                    {/* New: Impact indicator */}
-                    <div className="absolute bottom-3 right-3">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
-                        <Heart className="w-3 h-3 text-red-500" />
-                        <span className="text-xs font-medium">High Impact</span>
+                    {/* Difficulty badge */}
+                    <div className="absolute top-4 right-4">
+                      <div className="bg-black/70 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
+                        <Star className="w-3 h-3 text-yellow-400" />
+                        <span className="text-xs font-medium text-white">
+                          {character.difficulty}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Character emoji */}
+                    <div className="absolute bottom-4 left-4">
+                      <div className="text-4xl drop-shadow-2xl filter bg-white/20 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center">
+                        {character.emoji}
                       </div>
                     </div>
                   </div>
 
                   {/* Enhanced content section */}
-                  <div className="col-span-2 p-5 relative flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          {character.name}
-                        </h3>
-                        <Badge variant="outline" className="text-xs px-2 py-1">
-                          Age {character.age}
-                        </Badge>
+                  <div className="md:col-span-3 p-4 md:p-6 flex flex-col justify-between min-h-0">
+                    {/* Header */}
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+                        <div className="flex items-center gap-3 min-w-0 flex-1">
+                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300 truncate">
+                            {character.name}
+                          </h3>
+                          <Badge
+                            variant="outline"
+                            className="text-xs px-2 md:px-3 py-1 bg-gray-50 whitespace-nowrap"
+                          >
+                            Age {character.age}
+                          </Badge>
+                        </div>
+                        <div className="flex items-center gap-1 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                          <Play className="w-4 h-4" />
+                          <span className="text-sm font-medium hidden sm:inline">
+                            Start Story
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                          <span className="text-muted-foreground font-medium">
+                      <p className="text-gray-600 italic mb-4 text-sm leading-relaxed line-clamp-2">
+                        {character.description}
+                      </p>
+
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div
+                            className={`w-6 h-6 bg-gradient-to-br ${character.gradientColor} rounded-full flex items-center justify-center flex-shrink-0`}
+                          >
+                            <MapPin className="w-3 h-3 text-white" />
+                          </div>
+                          <span className="text-gray-700 font-medium truncate">
                             {character.location}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <GraduationCap className="h-4 w-4 text-green-600 flex-shrink-0" />
-                          <span className="font-semibold text-green-700">
+
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <GraduationCap className="w-3 h-3 text-white" />
+                          </div>
+                          <span className="font-semibold text-green-700 text-base md:text-lg line-clamp-2">
                             {character.dream}
                           </span>
                         </div>
-                        <div className="flex items-start gap-2 mt-3">
-                          <Zap className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-red-600 leading-tight font-medium">
+
+                        <div className="flex items-start gap-3 min-w-0">
+                          <div className="w-6 h-6 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Zap className="w-3 h-3 text-white" />
+                          </div>
+                          <span className="text-red-600 leading-tight font-medium text-sm line-clamp-3">
                             {character.challenge}
                           </span>
                         </div>
                       </div>
                     </div>
 
+                    {/* Stats section */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-gray-700 mb-3">
+                        Student Profile
+                      </h4>
+                      <div className="space-y-2">
+                        {Object.entries(character.stats).map(([key, value]) => (
+                          <div
+                            key={key}
+                            className="flex items-center justify-between"
+                          >
+                            <span className="text-sm text-gray-600 capitalize">
+                              {key}
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden stats-bar">
+                                <div
+                                  className={`h-full bg-gradient-to-r ${character.gradientColor} transition-all duration-1000 group-hover:animate-pulse`}
+                                  style={{ width: `${value}%` }}
+                                />
+                              </div>
+                              <span className="text-xs font-medium text-gray-500 w-8">
+                                {value}%
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
                     {/* Enhanced call-to-action */}
-                    <div className="flex items-center justify-between mt-4">
-                      <div className="flex items-center gap-2 text-primary">
-                        <Star className="w-4 h-4" />
-                        <span className="text-sm font-medium">
-                          Begin Journey
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 gap-2">
+                      <div className="flex items-center gap-2 min-w-0 flex-1">
+                        <Heart className="w-4 h-4 text-red-500 flex-shrink-0" />
+                        <span className="text-sm font-medium text-gray-700 truncate">
+                          Help {character.name} achieve their dream
                         </span>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform duration-300" />
+                      <div className="flex items-center gap-2 text-primary group-hover:gap-3 transition-all duration-300 flex-shrink-0">
+                        <span className="text-sm font-bold hidden sm:inline">
+                          Begin Journey
+                        </span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
                     </div>
                   </div>
                 </div>

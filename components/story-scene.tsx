@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { StoryScene, StoryChoice } from "@/lib/types";
-import { ArrowRight, Heart, Play, Pause, Volume2, Eye } from "lucide-react";
+import {
+  ArrowRight,
+  Heart,
+  Play,
+  Pause,
+  Volume2,
+  Eye,
+  Sparkles,
+} from "lucide-react";
 import Image from "next/image";
 
 interface StorySceneProps {
@@ -103,103 +111,164 @@ export function StorySceneComponent({
   return (
     <div
       ref={sceneRef}
-      className={`min-h-screen bg-background transition-all duration-1000 ${
+      className={`min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 transition-all duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="max-w-2xl mx-auto px-4 py-6 md:py-8">
-        {/* Progress Bar - Enhanced with animations */}
+      <div className="w-full max-w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 overflow-hidden">
+        {/* Enhanced Progress Bar with floating design */}
         <div
-          className={`sticky top-0 bg-background/95 backdrop-blur-sm z-10 pb-4 mb-6 transition-all duration-500 ${
-            isVisible ? "translate-y-0" : "-translate-y-4"
+          className={`sticky top-2 sm:top-4 bg-white/95 backdrop-blur-lg z-20 rounded-xl md:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-4 mb-6 md:mb-8 transition-all duration-500 mx-auto max-w-4xl ${
+            isVisible ? "translate-y-0 scale-100" : "-translate-y-4 scale-95"
           }`}
         >
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-sm text-muted-foreground font-medium">
-              Story Progress
-            </span>
-            <div className="flex items-center gap-2">
-              <Eye className="w-4 h-4 text-primary" />
-              <span className="text-sm font-semibold text-primary">
-                {Math.round(progress)}%
-              </span>
+          <div className="flex items-center justify-between mb-3 md:mb-4 flex-wrap gap-2">
+            <div className="flex items-center gap-2 md:gap-3 min-w-0">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <Eye className="w-4 h-4 md:w-5 md:h-5 text-white" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs md:text-sm font-semibold text-gray-900 block truncate">
+                  Story Progress
+                </span>
+                <div className="text-xs text-gray-500 truncate">
+                  Chapter {Math.ceil(progress / 25)} of 4
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="w-full bg-muted border border-border rounded-lg h-3 overflow-hidden">
-            <div
-              className="bg-gradient-to-r from-primary to-blue-600 h-3 rounded-lg transition-all duration-1000 ease-out relative"
-              style={{ width: `${progress}%` }}
-            >
-              <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <Badge
+                variant="secondary"
+                className="bg-primary/10 text-primary border-primary/20 text-xs md:text-sm px-2 md:px-3 py-1"
+              >
+                {Math.round(progress)}% Complete
+              </Badge>
             </div>
           </div>
 
-          {/* Reading Progress */}
+          <div className="relative">
+            <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-primary via-orange-500 to-yellow-500 h-3 rounded-full transition-all duration-1000 ease-out relative shadow-sm"
+                style={{ width: `${progress}%` }}
+              >
+                <div className="absolute inset-0 bg-white/30 animate-pulse rounded-full"></div>
+                <div className="absolute right-0 top-0 w-6 h-3 bg-white/50 rounded-full animate-bounce"></div>
+              </div>
+            </div>
+
+            {/* Progress milestones */}
+            <div className="absolute -bottom-3 left-0 right-0 flex justify-between">
+              {[25, 50, 75, 100].map((milestone, index) => (
+                <div
+                  key={milestone}
+                  className={`w-2 h-2 rounded-full border-2 border-white transition-all duration-500 ${
+                    progress >= milestone
+                      ? "bg-primary shadow-lg"
+                      : "bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Enhanced Reading Progress */}
           {contentRevealed && (
-            <div className="mt-2 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
               <button
                 onClick={toggleReading}
-                className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                className="w-8 h-8 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
                 {isReading ? (
-                  <Pause className="w-3 h-3" />
+                  <Pause className="w-4 h-4 text-primary" />
                 ) : (
-                  <Play className="w-3 h-3" />
+                  <Play className="w-4 h-4 text-primary" />
                 )}
               </button>
-              <div className="flex-1 bg-muted/50 rounded-full h-1">
-                <div
-                  className="bg-primary/60 h-1 rounded-full transition-all duration-300"
-                  style={{ width: `${readingProgress}%` }}
-                />
+              <div className="flex-1">
+                <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
+                  <span>Reading Progress</span>
+                  <span>{Math.round(readingProgress)}%</span>
+                </div>
+                <div className="bg-gray-200 rounded-full h-2">
+                  <div
+                    className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${readingProgress}%` }}
+                  />
+                </div>
               </div>
-              <span className="text-xs text-muted-foreground">Reading</span>
             </div>
           )}
         </div>
 
-        {/* Story Scene Card - Enhanced with reveal animations */}
+        {/* Enhanced Story Scene Card with modern design */}
         <div
-          className={`mb-8 bg-card border-2 border-border rounded-lg overflow-hidden transition-all duration-1000 ${
+          className={`mb-8 md:mb-10 bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-1000 hover:shadow-2xl md:hover:shadow-3xl mx-auto max-w-4xl ${
             isVisible ? "translate-y-0 scale-100" : "translate-y-8 scale-95"
           }`}
         >
-          <div className="relative h-72 md:h-96 group">
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] group overflow-hidden">
             <Image
               src={scene.imageUrl || "/placeholder.svg"}
               alt={scene.title}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
               onLoad={handleImageLoad}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-            {/* Floating elements for engagement */}
-            <div className="absolute top-4 right-4">
-              <div className="flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm">
-                <Volume2 className="w-3 h-3" />
-                <span className="text-xs">Audio Story</span>
+            {/* Enhanced gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-blue-600/20" />
+
+            {/* Floating audio indicator */}
+            <div className="absolute top-4 md:top-6 right-4 md:right-6">
+              <div className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 bg-white/20 backdrop-blur-md rounded-full text-white text-xs md:text-sm border border-white/30 hover:bg-white/30 transition-all duration-300">
+                <Volume2 className="w-3 h-3 md:w-4 md:h-4 animate-pulse" />
+                <span className="font-medium hidden sm:inline">
+                  Immersive Audio
+                </span>
+                <span className="font-medium sm:hidden">Audio</span>
               </div>
             </div>
 
+            {/* Chapter indicator */}
+            <div className="absolute top-4 md:top-6 left-4 md:left-6">
+              <div className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 bg-black/50 backdrop-blur-md rounded-full text-white text-xs md:text-sm border border-white/20">
+                <Heart className="w-3 h-3 md:w-4 md:h-4 text-red-400 animate-pulse" />
+                <span className="font-medium">
+                  Chapter {Math.ceil(progress / 25)}
+                </span>
+              </div>
+            </div>
+
+            {/* Enhanced title section */}
             <div
-              className={`absolute bottom-6 left-6 right-6 transition-all duration-1000 delay-300 ${
+              className={`absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-1000 delay-300 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-4 opacity-0"
               }`}
             >
-              <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-card/90 backdrop-blur-sm border border-border rounded-lg text-sm font-medium">
-                <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-                Chapter {Math.ceil(progress / 25)}
+              <div className="space-y-2 md:space-y-4">
+                <div className="inline-flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 bg-white/15 backdrop-blur-sm border border-white/30 rounded-full text-white text-xs md:text-sm font-medium">
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="hidden sm:inline">
+                    Live Story Experience
+                  </span>
+                  <span className="sm:hidden">Live Story</span>
+                </div>
+                <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight break-words">
+                  {scene.title}
+                </h1>
               </div>
-              <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
-                {scene.title}
-              </h1>
             </div>
+
+            {/* Decorative elements */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white/5 rounded-full animate-pulse opacity-50"></div>
           </div>
 
-          <div className="p-6 md:p-8">
+          {/* Enhanced content section */}
+          <div className="p-4 sm:p-6 md:p-8 lg:p-12 bg-gradient-to-br from-white to-gray-50">
             <div
               className={`transition-all duration-1000 delay-500 ${
                 contentRevealed
@@ -207,77 +276,157 @@ export function StorySceneComponent({
                   : "translate-y-4 opacity-0"
               }`}
             >
-              <p
-                ref={contentRef}
-                className="text-lg md:text-xl leading-relaxed text-foreground font-light relative"
-              >
-                {scene.content}
-
-                {/* Reading indicator */}
-                {isReading && (
-                  <span className="absolute -left-4 top-0 w-1 bg-primary animate-pulse h-full opacity-50"></span>
-                )}
-              </p>
-
-              {/* Emotional engagement indicators */}
-              <div className="mt-6 flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Heart className="w-4 h-4 text-red-500" />
-                  <span>Emotional Impact: High</span>
+              {/* Content header */}
+              <div className="flex items-center justify-between mb-6 md:mb-8 flex-wrap gap-3">
+                <div className="flex items-center gap-2 md:gap-3 min-w-0 flex-1">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-base md:text-lg">
+                      📖
+                    </span>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base truncate">
+                      Story Content
+                    </h3>
+                    <p className="text-xs md:text-sm text-gray-500 truncate">
+                      Immerse yourself in the narrative
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Eye className="w-4 h-4 text-blue-500" />
-                  <span>
-                    Reading Time: {Math.ceil(scene.content.length / 200)} min
-                  </span>
+                <Badge
+                  variant="outline"
+                  className="bg-blue-50 text-blue-700 border-blue-200 text-xs md:text-sm px-2 md:px-3 py-1 whitespace-nowrap"
+                >
+                  {Math.ceil(scene.content.length / 200)} min read
+                </Badge>
+              </div>
+
+              {/* Main content with enhanced typography */}
+              <div className="relative overflow-hidden">
+                <p
+                  ref={contentRef}
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-800 font-light relative mb-6 md:mb-8 selection:bg-primary/20 break-words overflow-wrap-anywhere"
+                  style={{ lineHeight: "1.8" }}
+                >
+                  {scene.content}
+
+                  {/* Enhanced reading indicator */}
+                  {isReading && (
+                    <span className="absolute -left-3 md:-left-6 top-0 w-1 md:w-2 bg-gradient-to-b from-primary to-orange-500 animate-pulse h-full opacity-70 rounded-full"></span>
+                  )}
+                </p>
+              </div>
+
+              {/* Enhanced engagement metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <div className="flex items-center gap-3 text-center md:text-left">
+                  <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-5 h-5 text-red-500" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">
+                      Emotional Impact
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      High resonance story
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 text-center md:text-left">
+                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Eye className="w-5 h-5 text-blue-500" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">
+                      Reading Time
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {Math.ceil(scene.content.length / 200)} minutes
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 text-center md:text-left">
+                  <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-green-500 font-bold">🎯</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">
+                      Impact Level
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      Life-changing choices
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Choices or Completion - Enhanced with staggered animations */}
+        {/* Enhanced completion screen */}
         {scene.isEnding ? (
           <div
-            className={`text-center space-y-8 transition-all duration-1000 delay-700 ${
+            className={`text-center space-y-10 transition-all duration-1000 delay-700 ${
               contentRevealed
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
             }`}
           >
-            <div className="p-8 md:p-10 bg-gradient-to-br from-primary/5 to-blue-50 border-2 border-primary/20 rounded-lg">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-primary animate-pulse" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-                  {"You've experienced the transformative power of education"}
-                </h2>
-                <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                  {
-                    "Every story like this is made possible by supporters like you. Ready to see your impact?"
-                  }
-                </p>
-              </div>
+            <div className="relative p-10 md:p-16 bg-gradient-to-br from-primary/5 via-white to-blue-50 border-2 border-primary/20 rounded-3xl shadow-2xl overflow-hidden">
+              {/* Decorative background elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/5 rounded-full translate-y-12 -translate-x-12"></div>
 
-              {/* Impact preview */}
-              <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-white/50 rounded-lg">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">1,247</div>
-                  <div className="text-xs text-muted-foreground">
-                    Students Helped
+              <div className="relative z-10">
+                <div className="mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl animate-pulse">
+                    <Heart className="w-12 h-12 text-white" />
                   </div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent mb-6 leading-tight">
+                    You've Experienced the Power of Education
+                  </h2>
+                  <p className="text-gray-600 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto font-light">
+                    Every story like this is made possible by supporters like
+                    you. Your choices matter, and now you can make them real.
+                  </p>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">$89k</div>
-                  <div className="text-xs text-muted-foreground">
-                    Raised This Month
+
+                {/* Enhanced impact statistics */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg">
+                  <div className="text-center p-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold text-xl">🎓</span>
+                    </div>
+                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+                      1,247
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 mt-1">
+                      Students Helped This Year
+                    </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">92%</div>
-                  <div className="text-xs text-muted-foreground">
-                    Success Rate
+                  <div className="text-center p-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold text-xl">💰</span>
+                    </div>
+                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                      $89k
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 mt-1">
+                      Raised This Month
+                    </div>
+                  </div>
+                  <div className="text-center p-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-orange-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold text-xl">⭐</span>
+                    </div>
+                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent">
+                      92%
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 mt-1">
+                      Success Rate
+                    </div>
                   </div>
                 </div>
               </div>
@@ -289,60 +438,76 @@ export function StorySceneComponent({
                 onComplete();
               }}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium min-h-14 w-full max-w-md mx-auto transition-all duration-200 hover:scale-105 group"
+              className="bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-500 text-white px-12 py-6 text-xl font-bold min-h-16 w-full max-w-lg mx-auto transition-all duration-300 hover:scale-105 group rounded-2xl shadow-xl hover:shadow-2xl"
             >
-              <span className="flex items-center gap-2">
-                Explore Your Impact
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <span className="flex items-center gap-3">
+                <Sparkles className="h-6 w-6" />
+                See Your Real Impact
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>
           </div>
         ) : (
+          /* Enhanced choice selection */
           <div
-            className={`space-y-8 transition-all duration-1000 delay-800 ${
+            className={`space-y-6 sm:space-y-8 md:space-y-10 px-4 sm:px-6 lg:px-8 transition-all duration-1000 delay-800 ${
               contentRevealed
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
             }`}
           >
+            {/* Choice header */}
             <div className="text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
-                {"What happens next?"}
+              <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white rounded-full border border-gray-200 shadow-sm mb-4 sm:mb-6">
+                <span className="w-3 h-3 bg-gradient-to-r from-primary to-orange-500 rounded-full animate-pulse"></span>
+                <span className="text-xs sm:text-sm font-medium text-gray-700">
+                  Decision Point
+                </span>
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
+                What happens next?
               </h2>
-              <p className="text-muted-foreground">
-                Your choice shapes this story
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto px-4">
+                Your choice will shape this story and determine the outcome.
+                Choose thoughtfully.
               </p>
             </div>
 
-            <div className="space-y-4">
+            {/* Enhanced choice buttons */}
+            <div className="space-y-3 sm:space-y-4 md:space-y-6 max-w-4xl mx-auto">
               {scene.choices.map((choice, index) => (
                 <Button
                   key={choice.id}
-                  variant={selectedChoice === choice.id ? "default" : "outline"}
+                  variant="ghost"
                   size="lg"
                   onClick={() => handleChoiceClick(choice)}
                   disabled={selectedChoice !== null}
-                  className={`w-full p-6 md:p-8 h-auto text-left justify-start transition-all duration-300 border-2 min-h-20 group hover:shadow-lg ${
+                  className={`w-full p-4 sm:p-6 md:p-8 h-auto text-left justify-start transition-all duration-500 border-2 min-h-20 sm:min-h-24 group hover:shadow-xl rounded-xl sm:rounded-2xl relative overflow-hidden ${
                     selectedChoice === choice.id
-                      ? "bg-primary text-primary-foreground border-primary transform scale-105"
-                      : "hover:bg-muted hover:border-primary bg-card"
+                      ? "bg-gradient-to-r from-primary to-orange-600 text-white border-transparent transform scale-[1.02] shadow-2xl"
+                      : "hover:bg-white hover:border-primary/30 bg-white/80 backdrop-blur-sm border-gray-200 hover:scale-[1.01]"
                   }`}
                   style={{
-                    animationDelay: `${index * 150}ms`,
+                    animationDelay: `${index * 200}ms`,
                     animationFillMode: "both",
                   }}
                 >
-                  <div className="flex items-center gap-4 w-full">
+                  {/* Choice selection background effect */}
+                  {selectedChoice !== choice.id && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  )}
+
+                  <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full relative z-10">
                     <div className="flex-shrink-0">
                       <div
-                        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
+                        className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                           selectedChoice === choice.id
-                            ? "border-white bg-white/20"
-                            : "border-primary/30 group-hover:border-primary"
+                            ? "border-white bg-white/20 shadow-lg"
+                            : "border-primary/40 group-hover:border-primary group-hover:bg-primary/10"
                         }`}
                       >
                         <ArrowRight
-                          className={`h-4 w-4 transition-all duration-300 ${
+                          className={`h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-all duration-300 ${
                             selectedChoice === choice.id
                               ? "translate-x-1 text-white"
                               : "text-primary group-hover:translate-x-1"
@@ -350,26 +515,71 @@ export function StorySceneComponent({
                         />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <span className="leading-relaxed font-medium text-base md:text-lg block">
+
+                    <div className="flex-1 space-y-1 sm:space-y-2 min-w-0">
+                      <span
+                        className={`leading-relaxed font-semibold text-sm sm:text-base md:text-lg lg:text-xl block break-words ${
+                          selectedChoice === choice.id
+                            ? "text-white"
+                            : "text-gray-900 group-hover:text-primary"
+                        }`}
+                      >
                         {choice.text}
                       </span>
-                      {/* Choice impact preview */}
-                      <span className="text-sm opacity-70 mt-1 block">
-                        {choice.id.includes("school")
-                          ? "🎓 Education path"
-                          : choice.id.includes("work")
-                          ? "💼 Work path"
-                          : "💫 Transformative path"}
-                      </span>
+
+                      {/* Enhanced choice impact preview */}
+                      <div
+                        className={`flex items-center gap-2 text-xs sm:text-sm ${
+                          selectedChoice === choice.id
+                            ? "text-white/90"
+                            : "text-gray-600"
+                        }`}
+                      >
+                        <span className="inline-flex items-center gap-1 break-words">
+                          {choice.id.includes("school") ? (
+                            <>
+                              🎓{" "}
+                              <span>
+                                Education pathway - High impact potential
+                              </span>
+                            </>
+                          ) : choice.id.includes("work") ? (
+                            <>
+                              💼{" "}
+                              <span>Work pathway - Immediate needs focus</span>
+                            </>
+                          ) : (
+                            <>
+                              💫{" "}
+                              <span>
+                                Transformative pathway - Life-changing outcome
+                              </span>
+                            </>
+                          )}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Button>
               ))}
             </div>
 
+            {/* Choice guidance */}
+            <div className="text-center p-4 sm:p-6 bg-blue-50 rounded-xl sm:rounded-2xl border border-blue-100 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-xl sm:text-2xl">💡</span>
+                <span className="font-semibold text-blue-900 text-sm sm:text-base">
+                  Remember
+                </span>
+              </div>
+              <p className="text-blue-800 text-xs sm:text-sm px-2">
+                Each choice reflects real decisions that students in Kenya face
+                every day. Your selection helps tell their story.
+              </p>
+            </div>
+
             {/* Add some breathing room at bottom for mobile */}
-            <div className="h-8"></div>
+            <div className="h-10"></div>
           </div>
         )}
       </div>
