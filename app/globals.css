@@ -41,6 +41,300 @@
   --sidebar-ring: #d75502;
 }
 
+/* Enhanced Micro-Interactions and Hover Effects */
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* Enhanced button hover effects */
+.btn-enhance {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-enhance::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-enhance:hover::before {
+  left: 100%;
+}
+
+/* Card hover effects */
+.card-interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Pulse effect for important elements */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+/* Typing effect for text reveals */
+.typing-reveal {
+  overflow: hidden;
+  border-right: 2px solid var(--primary);
+  animation: typing 3s steps(40) 1s forwards,
+    blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  width: 0;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary);
+  }
+}
+
+/* Floating action elements */
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Progressive image loading */
+.image-reveal {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 0.6s ease;
+}
+
+.image-reveal.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Number counter animation */
+.counter-animate {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.counter-animate.updating {
+  transform: scale(1.1);
+  color: var(--primary);
+}
+
+/* Donation amount glow effect */
+.donation-glow {
+  position: relative;
+}
+
+.donation-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--primary), #f59e0b, var(--primary));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.donation-glow:hover::after {
+  opacity: 1;
+}
+
+/* Story choice hover effects */
+.choice-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.choice-card:hover {
+  transform: translateX(8px);
+  border-color: var(--primary);
+  background: linear-gradient(
+    135deg,
+    var(--card) 0%,
+    rgba(215, 85, 2, 0.05) 100%
+  );
+}
+
+/* Impact visualization */
+.impact-bar {
+  background: linear-gradient(90deg, var(--primary) 0%, #f59e0b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Emotional response indicators */
+.emotion-indicator {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.emotion-indicator.active {
+  transform: scale(1.1);
+}
+
+.emotion-indicator.active::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--primary),
+    #f59e0b,
+    var(--primary)
+  );
+  z-index: -1;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, #f59e0b 100%);
+  transform-origin: left;
+  z-index: 50;
+}
+
+/* Loading states */
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    var(--muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Success celebration effects */
+.celebrate {
+  animation: celebrate 0.6s ease-in-out;
+}
+
+@keyframes celebrate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .dark {
   --background: #0a0a0a;
   --foreground: #f5f5f5;
