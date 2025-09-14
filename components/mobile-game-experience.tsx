@@ -733,7 +733,7 @@ export function MobileGameExperience() {
       </div>
 
       {/* Story content with enhanced spacing */}
-      <div className="p-4 max-w-lg mx-auto pt-8">
+      <div className="p-4 max-w-xl mx-auto pt-8">
         {gameState.currentScene && (
           <div className="space-y-6">
             {/* Scene indicator */}

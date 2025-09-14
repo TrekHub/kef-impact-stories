@@ -1,5 +1,5 @@
-import { MobileGameExperience } from "@/components/mobile-game-experience";
+import { InteractiveExperience } from "@/components/interactive-experience";
 
 export default function GamePage() {
-  return <MobileGameExperience />;
+  return <InteractiveExperience />;
 }

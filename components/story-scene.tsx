@@ -13,6 +13,8 @@ import {
   Volume2,
   Eye,
   Sparkles,
+  X,
+  Home,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -20,6 +22,7 @@ interface StorySceneProps {
   scene: StoryScene;
   onChoiceSelect: (choice: StoryChoice) => void;
   onComplete: () => void;
+  onExit?: () => void;
   progress: number;
 }
 
@@ -27,6 +30,7 @@ export function StorySceneComponent({
   scene,
   onChoiceSelect,
   onComplete,
+  onExit,
   progress,
 }: StorySceneProps) {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
@@ -115,10 +119,10 @@ export function StorySceneComponent({
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="w-full max-w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 overflow-hidden">
+      <div className="w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 overflow-hidden">
         {/* Enhanced Progress Bar with floating design */}
         <div
-          className={`sticky top-2 sm:top-4 bg-white/95 backdrop-blur-lg z-20 rounded-xl md:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-4 mb-6 md:mb-8 transition-all duration-500 mx-auto max-w-4xl ${
+          className={`sticky top-2 sm:top-4 bg-white/95 backdrop-blur-lg z-20 rounded-xl md:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-4 mb-6 md:mb-8 transition-all duration-500 mx-auto max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl ${
             isVisible ? "translate-y-0 scale-100" : "-translate-y-4 scale-95"
           }`}
         >
@@ -137,6 +141,16 @@ export function StorySceneComponent({
               </div>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
+              {onExit && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={onExit}
+                  className="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              )}
               <Badge
                 variant="secondary"
                 className="bg-primary/10 text-primary border-primary/20 text-xs md:text-sm px-2 md:px-3 py-1"
@@ -203,7 +217,7 @@ export function StorySceneComponent({
 
         {/* Enhanced Story Scene Card with modern design */}
         <div
-          className={`mb-8 md:mb-10 bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-1000 hover:shadow-2xl md:hover:shadow-3xl mx-auto max-w-4xl ${
+          className={`mb-8 md:mb-10 bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-1000 hover:shadow-2xl md:hover:shadow-3xl mx-auto max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl ${
             isVisible ? "translate-y-0 scale-100" : "translate-y-8 scale-95"
           }`}
         >
@@ -432,20 +446,36 @@ export function StorySceneComponent({
               </div>
             </div>
 
-            <Button
-              onClick={() => {
-                trackEngagement("story_completed", { scene_id: scene.id });
-                onComplete();
-              }}
-              size="lg"
-              className="bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-500 text-white px-12 py-6 text-xl font-bold min-h-16 w-full max-w-lg mx-auto transition-all duration-300 hover:scale-105 group rounded-2xl shadow-xl hover:shadow-2xl"
-            >
-              <span className="flex items-center gap-3">
-                <Sparkles className="h-6 w-6" />
-                See Your Real Impact
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => {
+                  trackEngagement("story_completed", { scene_id: scene.id });
+                  onComplete();
+                }}
+                size="lg"
+                className="bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-500 text-white px-12 py-6 text-xl font-bold min-h-16 w-full max-w-lg mx-auto transition-all duration-300 hover:scale-105 group rounded-2xl shadow-xl hover:shadow-2xl"
+              >
+                <span className="flex items-center gap-3">
+                  <Sparkles className="h-6 w-6" />
+                  See Your Real Impact
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Button>
+
+              {onExit && (
+                <Button
+                  onClick={onExit}
+                  variant="outline"
+                  size="lg"
+                  className="px-8 py-6 text-lg font-medium min-h-16 rounded-2xl border-2 hover:bg-gray-50"
+                >
+                  <span className="flex items-center gap-3">
+                    <Home className="h-5 w-5" />
+                    Return to Main Site
+                  </span>
+                </Button>
+              )}
+            </div>
           </div>
         ) : (
           /* Enhanced choice selection */
@@ -474,7 +504,7 @@ export function StorySceneComponent({
             </div>
 
             {/* Enhanced choice buttons */}
-            <div className="space-y-3 sm:space-y-4 md:space-y-6 max-w-4xl mx-auto">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6 max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
               {scene.choices.map((choice, index) => (
                 <Button
                   key={choice.id}
@@ -482,7 +512,7 @@ export function StorySceneComponent({
                   size="lg"
                   onClick={() => handleChoiceClick(choice)}
                   disabled={selectedChoice !== null}
-                  className={`w-full p-4 sm:p-6 md:p-8 h-auto text-left justify-start transition-all duration-500 border-2 min-h-20 sm:min-h-24 group hover:shadow-xl rounded-xl sm:rounded-2xl relative overflow-hidden ${
+                  className={`w-full p-4 sm:p-6 md:p-8 h-auto text-left justify-start transition-all duration-500 border-2 group hover:shadow-xl rounded-xl sm:rounded-2xl relative ${
                     selectedChoice === choice.id
                       ? "bg-gradient-to-r from-primary to-orange-600 text-white border-transparent transform scale-[1.02] shadow-2xl"
                       : "hover:bg-white hover:border-primary/30 bg-white/80 backdrop-blur-sm border-gray-200 hover:scale-[1.01]"
@@ -490,8 +520,6 @@ export function StorySceneComponent({
                   style={{
                     animationDelay: `${index * 200}ms`,
                     animationFillMode: "both",
-                    wordBreak: "break-word",
-                    overflowWrap: "anywhere",
                   }}
                 >
                   {/* Choice selection background effect */}
@@ -499,7 +527,7 @@ export function StorySceneComponent({
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   )}
 
-                  <div className="flex items-start gap-3 sm:gap-4 md:gap-6 w-full relative z-10 overflow-hidden">
+                  <div className="flex items-start gap-3 sm:gap-4 md:gap-6 w-full relative z-10">
                     <div className="flex-shrink-0 mt-1">
                       <div
                         className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
@@ -518,17 +546,18 @@ export function StorySceneComponent({
                       </div>
                     </div>
 
-                    <div className="flex-1 space-y-1 sm:space-y-2 min-w-0 overflow-hidden">
+                    <div className="flex-1 space-y-1 sm:space-y-2 min-w-0">
                       <span
-                        className={`leading-relaxed font-semibold text-sm sm:text-base md:text-lg block break-words word-wrap overflow-wrap-anywhere hyphens-auto ${
+                        className={`leading-relaxed font-semibold text-sm sm:text-base md:text-lg block whitespace-pre-wrap break-words ${
                           selectedChoice === choice.id
                             ? "text-white"
                             : "text-gray-900 group-hover:text-primary"
                         }`}
                         style={{
                           wordBreak: "break-word",
-                          overflowWrap: "anywhere",
+                          overflowWrap: "break-word",
                           hyphens: "auto",
+                          whiteSpace: "pre-wrap",
                         }}
                       >
                         {choice.text}

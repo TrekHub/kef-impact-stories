@@ -17,6 +17,8 @@ import {
   Star,
   ChevronRight,
   Play,
+  Home,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -107,14 +109,23 @@ export function InteractiveExperience() {
         </div>
       </div>
 
-      <Button
-        size="lg"
-        className="text-lg px-8 py-4"
-        onClick={() => setCurrentStage("map-overview")}
-      >
-        Begin Your Journey
-        <ArrowRight className="ml-2 h-5 w-5" />
-      </Button>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button
+          size="lg"
+          className="text-lg px-8 py-4"
+          onClick={() => setCurrentStage("map-overview")}
+        >
+          Begin Your Journey
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
+
+        <Link href="/">
+          <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+            <Home className="mr-2 h-5 w-5" />
+            Return to Main Site
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 
@@ -328,6 +339,15 @@ export function InteractiveExperience() {
       setCurrentStage("connections");
     };
 
+    const handleStoryExit = () => {
+      // Reset to intro stage to allow user to start over or navigate away
+      setCurrentStage("intro");
+      setSelectedStory(null);
+      setCurrentScene(null);
+      setSelectedHotspot(null);
+      setProgress(0);
+    };
+
     if (!currentScene) return null;
 
     return (
@@ -337,19 +357,28 @@ export function InteractiveExperience() {
             <BookOpen className="w-4 h-4 mr-2" />
             Interactive Story • {selectedHotspot?.name}
           </Badge>
-          <Button
-            variant="ghost"
-            onClick={() => setCurrentStage("story-selection")}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              onClick={() => setCurrentStage("story-selection")}
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
+            <Link href="/">
+              <Button variant="outline" size="sm">
+                <Home className="mr-2 h-4 w-4" />
+                Exit to Home
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <StorySceneComponent
           scene={currentScene}
           onChoiceSelect={handleChoiceSelect}
           onComplete={handleStoryComplete}
+          onExit={handleStoryExit}
           progress={progress}
         />
       </div>
@@ -447,6 +476,34 @@ export function InteractiveExperience() {
       className="py-8 md:py-12 min-h-screen bg-background"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6">
+        {/* Header Navigation */}
+        <div className="flex items-center justify-between mb-6 md:mb-8">
+          <div className="flex items-center gap-2">
+            <Badge variant="outline" className="text-sm">
+              <Globe className="w-4 h-4 mr-2" />
+              Interactive Experience
+            </Badge>
+          </div>
+          <div className="flex items-center gap-2">
+            {currentStage !== "intro" && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setCurrentStage("intro")}
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Restart Journey
+              </Button>
+            )}
+            <Link href="/">
+              <Button variant="outline" size="sm">
+                <X className="mr-2 h-4 w-4" />
+                Exit Experience
+              </Button>
+            </Link>
+          </div>
+        </div>
+
         {/* Progress Header */}
         <div className="mb-6 md:mb-8">
           <div className="flex items-center justify-between mb-2">
