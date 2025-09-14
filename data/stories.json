@@ -1,0 +1,122 @@
+{
+  "stories": [
+    {
+      "id": "silvia-story",
+      "title": "Silvia's Journey",
+      "description": "Follow Silvia, a bright 14-year-old girl from rural Kenya, as she navigates the challenges of pursuing her education.",
+      "scenes": [
+        {
+          "id": "silvia-start",
+          "title": "A Dream Deferred",
+          "content": "Silvia sits outside her family's small home in rural Kenya, watching her younger siblings play. At 14, she dreams of becoming a doctor, but her family can't afford the $400 needed for secondary school fees. Her father works as a day laborer, earning barely enough to feed the family.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [
+            {
+              "id": "choice-1a",
+              "text": "Silvia decides to work to help her family instead of going to school",
+              "nextSceneId": "silvia-work"
+            },
+            {
+              "id": "choice-1b",
+              "text": "Silvia's family receives a KEF scholarship",
+              "nextSceneId": "silvia-school"
+            }
+          ]
+        },
+        {
+          "id": "silvia-work",
+          "title": "The Cycle Continues",
+          "content": "Without education, Silvia is married at 16 and has her first child at 17. Like 60% of girls in her community, she becomes trapped in the cycle of poverty. Her dreams of becoming a doctor fade as she struggles to provide for her own children.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [
+            {
+              "id": "choice-2a",
+              "text": "See how education could have changed everything",
+              "nextSceneId": "silvia-school"
+            }
+          ]
+        },
+        {
+          "id": "silvia-school",
+          "title": "The Power of Education",
+          "content": "With KEF's support, Silvia excels in secondary school. She receives not just tuition, but also uniforms, books, and sanitary pads that keep her in school. Her confidence grows as she tops her class in science subjects. Teachers encourage her to pursue medicine.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [
+            {
+              "id": "choice-3a",
+              "text": "Follow Silvia to university",
+              "nextSceneId": "silvia-university"
+            }
+          ]
+        },
+        {
+          "id": "silvia-university",
+          "title": "Dreams Realized",
+          "content": "Today, Dr. Silvia Wanjiku works at Kenyatta National Hospital, saving lives and inspiring other young girls in her community. She sponsors three KEF students herself, continuing the cycle of transformation. Her success story shows that education doesn't just change one life—it transforms entire communities.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [],
+          "isEnding": true
+        }
+      ]
+    },
+    {
+      "id": "sawa-story",
+      "title": "Sawa's Path",
+      "description": "Experience the journey of Sawa, a 15-year-old boy from Turkana, as education opens doors to a brighter future.",
+      "scenes": [
+        {
+          "id": "sawa-start",
+          "title": "Between Cattle and Books",
+          "content": "Sawa tends to his family's cattle in the arid lands of Turkana. At 15, he's expected to become a full-time herder, but he dreams of engineering. The nearest secondary school is 20km away, and his family sees no value in education when cattle need tending.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [
+            {
+              "id": "choice-s1a",
+              "text": "Sawa stays with the cattle, following tradition",
+              "nextSceneId": "sawa-traditional"
+            },
+            {
+              "id": "choice-s1b",
+              "text": "KEF provides a scholarship and boarding support",
+              "nextSceneId": "sawa-education"
+            }
+          ]
+        },
+        {
+          "id": "sawa-traditional",
+          "title": "The Old Ways",
+          "content": "Sawa becomes a skilled herder but struggles as climate change makes pastoralism increasingly difficult. Droughts become more frequent, and cattle die. Without education or alternative skills, he faces a future of uncertainty and poverty.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [
+            {
+              "id": "choice-s2a",
+              "text": "Discover how education could provide alternatives",
+              "nextSceneId": "sawa-education"
+            }
+          ]
+        },
+        {
+          "id": "sawa-education",
+          "title": "New Horizons",
+          "content": "At boarding school, Sawa discovers his talent for mathematics and physics. KEF's holistic support includes counseling to help him navigate between his traditional culture and modern education. He learns that he can honor his heritage while building a different future.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [
+            {
+              "id": "choice-s3a",
+              "text": "See Sawa's impact on his community",
+              "nextSceneId": "sawa-engineer"
+            }
+          ]
+        },
+        {
+          "id": "sawa-engineer",
+          "title": "Building the Future",
+          "content": "Engineer Sawa Lokwawi now designs water systems for pastoral communities across Northern Kenya. His innovations help families adapt to climate change while preserving their cultural identity. He's living proof that education amplifies rather than erases cultural heritage.",
+          "imageUrl": "/placeholder.svg?height=400&width=600",
+          "choices": [],
+          "isEnding": true
+        }
+      ]
+    }
+  ]
+}

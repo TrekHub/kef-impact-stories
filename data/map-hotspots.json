@@ -1,0 +1,64 @@
+{
+  "hotspots": [
+    {
+      "id": "nairobi",
+      "name": "Nairobi",
+      "coordinates": [-1.2921, 36.8219],
+      "story": {
+        "title": "Urban Dreams, Rural Roots",
+        "content": "In Nairobi's Kibera slum, 16-year-old Grace walks 2 hours daily to reach her KEF-supported school. Despite living in one of Africa's largest slums, she maintains top grades and dreams of becoming a lawyer to fight for social justice.",
+        "imageUrl": "/placeholder.svg?height=300&width=400",
+        "studentName": "Grace Akinyi",
+        "impact": "KEF scholarship covers her school fees, uniform, and provides a safe space to study after school."
+      }
+    },
+    {
+      "id": "kisumu",
+      "name": "Kisumu",
+      "coordinates": [-0.0917, 34.768],
+      "story": {
+        "title": "Breaking Barriers by the Lake",
+        "content": "Along Lake Victoria's shores, 17-year-old Peter balances fishing with his family and excelling in chemistry. KEF's support means he doesn't have to choose between helping his family survive and pursuing his education.",
+        "imageUrl": "/placeholder.svg?height=300&width=400",
+        "studentName": "Peter Ochieng",
+        "impact": "Flexible scheduling and financial support allow Peter to contribute to family income while staying in school."
+      }
+    },
+    {
+      "id": "turkana",
+      "name": "Turkana",
+      "coordinates": [3.1167, 35.5833],
+      "story": {
+        "title": "Education in the Desert",
+        "content": "In Kenya's arid north, 15-year-old Akiru is the first girl in her family to attend secondary school. KEF's boarding support protects her from early marriage while she pursues her passion for environmental science.",
+        "imageUrl": "/placeholder.svg?height=300&width=400",
+        "studentName": "Akiru Ekal",
+        "impact": "Boarding school provides safety and stability, while mentorship helps her navigate cultural expectations."
+      }
+    },
+    {
+      "id": "mombasa",
+      "name": "Mombasa",
+      "coordinates": [-4.0435, 39.6682],
+      "story": {
+        "title": "Coastal Aspirations",
+        "content": "In Mombasa's Old Town, 16-year-old Amina combines her love for marine biology with her Islamic faith. KEF's inclusive approach respects her cultural identity while opening doors to scientific careers.",
+        "imageUrl": "/placeholder.svg?height=300&width=400",
+        "studentName": "Amina Hassan",
+        "impact": "Culturally sensitive support and marine science resources fuel her passion for ocean conservation."
+      }
+    },
+    {
+      "id": "eldoret",
+      "name": "Eldoret",
+      "coordinates": [0.5143, 35.2698],
+      "story": {
+        "title": "Running Towards Tomorrow",
+        "content": "In the highlands of Eldoret, 17-year-old David trains as a runner while excelling in mathematics. KEF ensures that academic excellence matches his athletic achievements, preparing him for engineering studies.",
+        "imageUrl": "/placeholder.svg?height=300&width=400",
+        "studentName": "David Kipchoge",
+        "impact": "Balanced support for both academics and athletics, with tutoring to maintain high grades during training."
+      }
+    }
+  ]
+}
