@@ -40,14 +40,25 @@ export function QRLanding() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("source") === "qr" || urlParams.get("ref") === "qr") {
       setShowQuickStart(true);
+      return () => window.removeEventListener("resize", checkMobile);
     }
 
-    // Auto-show quick start for all users after 2 seconds
-    const timer = setTimeout(() => setShowQuickStart(true), 2000);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", checkMobile);
-    };
+    // Check if user has already seen the prompt this session
+    const hasSeenPrompt = sessionStorage.getItem("kef-prompt-shown");
+
+    // Only auto-show if user hasn't seen it yet this session
+    if (!hasSeenPrompt) {
+      const timer = setTimeout(() => {
+        setShowQuickStart(true);
+        sessionStorage.setItem("kef-prompt-shown", "true");
+      }, 2000);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("resize", checkMobile);
+      };
+    }
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const startGameImmediately = () => {
@@ -114,7 +125,10 @@ export function QRLanding() {
             <Button
               variant="outline"
               className="w-full"
-              onClick={() => setShowQuickStart(false)}
+              onClick={() => {
+                setShowQuickStart(false);
+                sessionStorage.setItem("kef-prompt-shown", "true");
+              }}
             >
               Explore Website First
               <ArrowRight className="h-4 w-4 ml-2" />
