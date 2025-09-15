@@ -42,14 +42,13 @@ export function QRLanding() {
       setShowQuickStart(true);
     }
 
-    // Auto-show quick start for mobile users after 1 second
-    if (isMobile) {
-      const timer = setTimeout(() => setShowQuickStart(true), 1000);
-      return () => clearTimeout(timer);
-    }
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, [isMobile]);
+    // Auto-show quick start for all users after 2 seconds
+    const timer = setTimeout(() => setShowQuickStart(true), 2000);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   const startGameImmediately = () => {
     router.push("/game");
@@ -66,8 +65,8 @@ export function QRLanding() {
           {/* Header */}
           <div className="mb-6">
             <div className="flex items-center justify-center mb-4">
-              <QrCode className="h-8 w-8 text-primary mr-2" />
-              <Smartphone className="h-8 w-8 text-blue-600" />
+              <Play className="h-8 w-8 text-primary mr-2" />
+              <Heart className="h-8 w-8 text-blue-600" />
             </div>
             <h2 className="text-2xl font-bold mb-2">Welcome!</h2>
             <p className="text-muted-foreground">
@@ -124,7 +123,7 @@ export function QRLanding() {
 
           {/* Footer */}
           <div className="mt-4 pt-4 border-t text-xs text-muted-foreground">
-            <p>🌍 Stories from Kenya Education Fund</p>
+            <p>🌍 Interactive Stories from Kenya Education Fund</p>
           </div>
         </CardContent>
       </Card>
