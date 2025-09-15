@@ -30,6 +30,9 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
+
+
+          
           <Link href="/" className="flex items-center">
             <div className="relative w-16 h-16 flex-shrink-0">
               <Image
